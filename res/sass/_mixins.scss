@@ -1,0 +1,21 @@
+//start of mixins definitions
+//starting is the same as ReviewR app
+@mixin center($direction) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin circular-w-h($amount){
+    border-radius: 100%;
+    width: $amount;
+    height: $amount;
+}
+
+@mixin rectangular-wh($amount){
+    height: $amount;
+    width: $amount*2.61;
+    border-radius: 3px;
+    border: none;
+}
