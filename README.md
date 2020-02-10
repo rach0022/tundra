@@ -7,6 +7,7 @@
 - [ ] make splashscreen and icon
 - [ ] add tiny$hell to this project (hosted for offline use)
 - [ ] (optional) get google fonts for this project
+- [x] select a colour scheme to use through the app (in /res/sass/_variables.scss)
 
 #### Project Details: 
 - [ ] This app will let you create a Cordova app that will run on both Android and iOS. The core JavaScript that we use will be the same for both versions. However, there may be a few script and style things that are different between the two platforms. We will use the merge folder to handle these differences.
