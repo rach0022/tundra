@@ -8,7 +8,7 @@
 - [ ] make fetch calls from http://griffis.edumedia.ca/mad9022/tundra/get.profiles.php?gender=female to get data
 - [x] make splashscreen and icon (use https://pgicons.abiro.com/ to export)
 - [ ] add tiny$hell to this project (hosted for offline use)
-- [ ] (optional) get google fonts for this project
+- [x] (optional) get google fonts for this project (rokkit and Rubik)
 - [x] select a colour scheme to use through the app (in /res/sass/_variables.scss)
 
 #### Project Details: 
