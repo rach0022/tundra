@@ -4,7 +4,7 @@
 #### Code:
 - [ ] setup enviroment variables for android on macsystem
 - [ ] make fetch calls from http://griffis.edumedia.ca/mad9022/tundra/get.profiles.php?gender=female to get data
-- [ ] make splashscreen and icon
+- [ ] make splashscreen and icon (use https://pgicons.abiro.com/ to export)
 - [ ] add tiny$hell to this project (hosted for offline use)
 - [ ] (optional) get google fonts for this project
 - [x] select a colour scheme to use through the app (in /res/sass/_variables.scss)
@@ -30,7 +30,7 @@
     {"id":"15180942065", "first":"Tasneem", "avatar":"f-005.jpg", "last":"Lee", "gender":"female", "distance":"2km"}
 ]}
 ````
-    - [ ] Note that each person object will contain a first name, last name, and an avatar image. The images all sit inside the folder defined in the imgBaseURL property at the root level. You will need to use the decodeURLComponent() method to use the value of imgBaseURL. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/decodeURIComponent . An example of a complete URL for an image would be //griffis.edumedia.ca/mad9022/tundra/profiles/f-009.jpg.
+- [ ] Note that each person object will contain a first name, last name, and an avatar image. The images all sit inside the folder defined in the imgBaseURL property at the root level. You will need to use the decodeURLComponent() method to use the value of imgBaseURL. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/decodeURIComponent . An example of a complete URL for an image would be //griffis.edumedia.ca/mad9022/tundra/profiles/f-009.jpg.
 
 - [ ] The profiles array from the data should be looped through and a single card created for each profile.
 - [ ] after the user swipes the profile card, and after the transition animation has finished be sure to remove the card from the DOM.
