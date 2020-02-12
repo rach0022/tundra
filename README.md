@@ -3,6 +3,7 @@
 
 #### Bugs to Fix:
 - [ ] Figure out why reveal right and left do not work
+- [ ] Fix Content Security Policy to include calls to Steve's API
 #### Code:
 - [x] setup enviroment variablres for android development
 - [x] learn how to use cordova merges folder: https://www.youtube.com/watch?v=PPI_9ilON7Y&feature=emb_title

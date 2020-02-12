@@ -18,6 +18,9 @@ const tundra = {
         error: "Something Funky Happened, lets reload",
         confirm: "Would you like to delete profile?"
     },
+    profilesApiUrl: 'http://griffis.edumedia.ca/mad9022/tundra/get.profiles.php?gender=',
+    genderParameter: null,
+    currentProfiles: null,
 
     //init function for app, runs after Device Ready or DOMContentLoaded
     init: () => {
@@ -56,6 +59,11 @@ const tundra = {
         p.textContent = "...Tundra Active"
 
         home.appendChild(p);
+
+        //start of tundra based initilization code
+        //first we set the gender parameter:
+        tundra.genderParameter = 'male';
+        tundra.getProfiles(); //testing the get profiles function
     },
 
     nav: ev =>{
@@ -112,6 +120,23 @@ const tundra = {
         //the get the elememnt id from the url
         let target = location.hash.replace("#", "");
         tundra.showPage(target);
+    },
+
+    //Start of helper function definitions
+    //getProfiles will preform a fetch call to the tundra.profilesApiUrl + genderParameter
+    //and will add the results to the tundra.currentProfiles array
+    getProfiles: function() {
+        fetch(tundra.profilesApiUrl+tundra.genderParameter)
+            .then(response => response.json())
+            .then(data =>{
+                //add the data to the array
+                console.log(data); 
+            })
+            .catch(err => {
+                //for now we will console log the error later on we will
+                //switch the error overlay to active to show that an error has occured
+                console.log(err);
+            })
     }
 }
 
