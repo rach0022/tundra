@@ -6,23 +6,84 @@
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
         <!-- tinyshell link to css before mine  -->
-        <!-- <link rel="stylesheet" href="/www/tinyshell/dist/css/tinyshell.css"> -->
+        <link rel="stylesheet" href="/www/tinyshell/dist/css/tinyshell.css">
         <link rel="stylesheet" href="/www/css/style.css">
+        <!-- <link rel="stylesheet" href="/www/css/platform.css"> link to merged ios/android -->
         <!-- <link rel="stylesheet" type="text/css" href="css/index.css"> -->
         <title>Tundra</title>
     </head>
     <body>
         <main>
+            <!-- the top navigation bar using tinyshell, it is outside any page  -->
+            <nav class="bar top">
+                <header>
+                    <div class="tab">
+                        <h2>Tundra Dating </h2>
+                    </div>
+                </header>
+            </nav>
+            <!-- the home page for the tundra app, using page active  -->
             <div id="home" class="page active">
-                <button data-href="profiles">Profiles</button>
+                <section class="content">
+                    <div class="card fixed active">
+                        <header>
+                            <h2>Ms. Temp Orary</h2>
+                        </header>
+                        <img src="#" alt="Test Image">
+                        <p>This is some test text for MS. Temp Orary</p>
+                    </div>
+                    <div class="card fixed left">
+                        <header>
+                            <h2>Ms. Temp Orary II</h2>
+                        </header>
+                        <img src="#" alt="Test Image">
+                        <p>This is some test text for MS. Temp Orary the second</p>
+                    </div>
+                    <div class="card fixed left">
+                        <header>
+                            <h2>Ms. Temp Orary III</h2>
+                        </header>
+                        <img src="#" alt="Test Image">
+                        <p>This is some test text for MS. Temp Orary the third</p>
+                    </div>
+                </section>
+                <!-- <button data-href="profiles">Profiles</button> -->
             </div>
+            <!-- the profiles page for the tundra app not the default page -->
             <div id="profiles" class="page">
-                <button data-href="home">Home</button>
+                <section class="content">
+                    <!-- test list for profiles  -->
+                    <ul class="list-view">
+                        <li class="list-item has-reveal-left">
+                            <div class="reveal-left"><i class="icon delete"></i></div>
+                            <div class="list-text">Drag Left</div>
+                            <div class="action-right"><i class="icon edit"></i></div>
+                        </li>
+                        <li class="list-item has-reveal-both" >
+                            <div class="reveal-left"><i class="icon delete"></i></div>
+                            <div class="reveal-right"><i class="icon delete"></i></div>
+                            <div class="list-text">Swipe Me Both Ways</div>
+                        </li>
+                        <li class="list-item">
+                            <div class="action-right"><i class="icon thumb-up"></i></div>
+                            <div class="action-left"><i class="icon thumb-down"></i></div>
+                            <div class="list-text">I Have Two Actions</div>
+                        </li>
+                    </ul>
+                </section>
+                <!-- <button data-href="home">Home</button> -->
             </div>
+
+            <!-- the bottom navigation bar for the tundra app  -->
+            <nav class="bar bottom">
+                <div class="tab" data-href="home">Home</div>
+                <div class="tab" data-href="profiles">Profiles</div>
+            </nav>
         </main>
         <script type="text/javascript" src="cordova.js"></script>
         <!-- tinyshell link to js before mine  -->
-        <!-- <script src="/www/tinyshell/dist/js/tinyshell-min.js"></script> -->
+        <script src="/www/tinyshell/dist/js/tinyshell-min.js"></script>
         <script src="/www/js/app.js"></script>
+        <!-- <script src="/www/js/platform.js"></script> link to merged ios/android -->
     </body>
 </html>
