@@ -1,13 +1,14 @@
 # Tundra
 ## Cold Climate Dating App
 
+#### Bugs to Fix:
+- [ ] Figure out why reveal right and left do not work
 #### Code:
-- [ ] setup enviroment variablres for android development
-- [ ] learn how to use cordova merges folder: https://www.youtube.com/watch?v=PPI_9ilON7Y&feature=emb_title
-- [ ] setup enviroment variables for android on macsystem
+- [x] setup enviroment variablres for android development
+- [x] learn how to use cordova merges folder: https://www.youtube.com/watch?v=PPI_9ilON7Y&feature=emb_title
 - [ ] make fetch calls from http://griffis.edumedia.ca/mad9022/tundra/get.profiles.php?gender=female to get data
 - [x] make splashscreen and icon (use https://pgicons.abiro.com/ to export)
-- [ ] add tiny$hell to this project (hosted for offline use)
+- [x] add tiny$hell to this project (hosted for offline use)
 - [x] (optional) get google fonts for this project (rokkit and Rubik)
 - [x] select a colour scheme to use through the app (in /res/sass/_variables.scss)
 
