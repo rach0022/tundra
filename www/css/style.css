@@ -65,6 +65,12 @@ h1, h2, h3, h4, h5, h6 {
   .card .moveright {
     transform: translateX(300%); }
 
+#profiles .list-view .list-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; }
+
 body {
   padding: 0;
   margin: 0;

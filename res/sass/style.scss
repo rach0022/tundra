@@ -43,6 +43,14 @@ h1, h2, h3, h4, h5, h6{
     }
 }
 
+#profiles{
+    .list-view{
+        .list-item{
+            @include center(row);
+        }
+    }
+}
+
 //base code taken form simple spa demo:
 body {
     padding: 0;

@@ -65,14 +65,16 @@ const tundra = {
         home.appendChild(p);
 
         //start of tundra based initilization code
-        //first we set the gender parameter:
 
         //defining the session key
         //set key based on device id
         tundra.sessionKey = "device" in window ? "REVIEW" + device.uuid : "REVIEWTEMPKEY";
 
         tundra.genderParameter = 'female';
-        tundra.getNewProfiles(); //testing the get profiles function
+        tundra.getNewProfiles(); //running this at initilization so the user has profiles to swipe
+
+        //now we add the event listener for the build profile page callback
+        document.querySelector('[data-href="profiles"]').addEventListener('click', tundra.buildProfilesPage);
 
         //now lets initialize the a new instance of Tiny$hell on the profiles sections and home section
         // let home_sect = document.getElementById('home-section');
@@ -113,16 +115,18 @@ const tundra = {
         document.querySelector('.active').classList.remove('active');
         document.querySelector(`#${target}`).classList.add('active');
 
-        //switch case method to change app properties based on which page is showing
-        // switch(target){
-        //     default: 
-        //         console.log(tundra.appTextSource.error);
-        //         break;
-        //     case 'home':
-        //         break;
-        //     case 'profiles':
-        //         break;
-        // }
+        // switch case method to change app properties based on which page is showing
+        switch(target){
+            default: 
+                console.log(tundra.appTextSource.error);
+                break;
+            case 'home':
+                console.log(tundra.appTextSource.welcome);
+                break;
+            case 'profiles':
+                // tundra.buildProfilesPage(); //cannot do this, hit max stack error
+                break;
+        }
     },
 
     //callback function for when the back button is clicked
@@ -175,7 +179,7 @@ const tundra = {
                     tundra.currentProfiles.push(profile);
                     tundra.buildNewProfileCards(profile);
                 })
-                console.log(tundra.currentProfiles, tundra.imgBaseUrl);
+                // console.log(tundra.currentProfiles, tundra.imgBaseUrl);
             })
             .catch(err => {
                 //for now we will console log the error later on we will
@@ -193,7 +197,7 @@ const tundra = {
         if(len < tundra.PROFILE_MIN){
             tundra.getNewProfiles();
         }
-        console.log(len);
+        // console.log(len);
     },
 
     //function to use the data from the profiles to build cards
@@ -283,7 +287,7 @@ const tundra = {
         let saved = tundra.currentProfiles.splice(index, 1);
         tundra.savedProfiles.push(saved);
         tundra.setProfiles();
-        console.log(saved, tundra.savedProfiles);
+        // console.log(saved, tundra.savedProfiles);
     },
 
     //helper function to remove the card from the html:
@@ -298,6 +302,94 @@ const tundra = {
             500 //ms
         );
         tundra.checkCurrentLoadedProfiles();
+    },
+
+    //this is the callback function to build the saved profiles page using the data from
+    //session storage when the user clicks the profiles tab
+    buildProfilesPage: () => {
+        //first we pull the current data from the session stroage
+        tundra.getSavedProfiles();
+        // console.log(tundra.savedProfiles);
+
+        //now lets get a reference to the section of the profiles page and clear that
+        //then rebuild the elememts based on whats in the tundra.savedProfiles()
+        let profile_sect = document.getElementById('profile-section');
+        profile_sect.innerHTML = "";
+
+        /* build the profiles based on this html skleton: 
+        <ul class="list-view">
+            <li class="list-item">
+                <img src="" alt="" class="avatar">
+                <div class="list-text"></div>
+                <div class="action-right"><span class="icon delete"></span></div>
+            </li>
+        </ul>
+        */
+
+        //first the ul element to contain all the profiles, add the class and create a document
+        //frag
+        let list_view = document.createElement('ul');
+        list_view.classList.add('list-view');
+        let frag = document.createDocumentFragment();
+
+        //loop through each profile in tundra.savedProfiles and create the corresponding elements
+        //setting the text values and img src from the savedprofile
+        if(tundra.savedProfiles.length >= 1){ //if it is not an empty array
+            tundra.savedProfiles.forEach(profile =>{
+
+                //first create all the elements needed
+                let list_item = document.createElement('li');
+                let poster = document.createElement('img');
+                let profile_name = document.createElement('div');
+                let del_button = document.createElement('div');
+                let span_icon = document.createElement('span');
+    
+                //now to set the class names and values for text
+                list_item.classList.add('list-item');
+                list_item.setAttribute('data-id', profile[0].id); //set the id so we still have a link to the array
+                poster.src = 'http:' + tundra.imgBaseUrl + profile[0].avatar;
+                poster.alt = `Avatar image for ${profile[0].first} ${profile[0].last}`;
+                poster.classList.add('avatar');
+                profile_name.classList.add('list-text')
+                profile_name.textContent = `${profile[0].first} ${profile[0].last}`;
+                del_button.classList.add('action-right');
+                del_button.setAttribute('data-id', profile[0].id); //set the id so we still have a link to the array
+                del_button.addEventListener('click', tundra.deleteProfile);
+                span_icon.classList.add('icon', 'delete');
+    
+                //now to append the elements in the proper order to the list item and then
+                //make it into a new instace of tiny$hell and thenappend to the document fragment 
+                del_button.appendChild(span_icon);
+                list_item.appendChild(poster);
+                list_item.appendChild(profile_name);
+                list_item.appendChild(del_button);
+
+                // list_item = new tinyshell(list_item);
+
+                frag.appendChild(list_item);
+            });
+            //now we append the frag to the ul (list_view) and show the profiles page
+            list_view.appendChild(frag);
+            profile_sect.appendChild(list_view);
+            tundra.navWithoutEvent('profiles');
+        }
+    },
+
+    //callback function to delete saved profile when the user clicks the delete button in
+    // profiles page, first we get the index from the data-id attribute and then we
+    //find the index based on the id and splice the element at that index finally navigating
+    //back to the profiles page
+    deleteProfile: ev =>{
+        ev.preventDefault();
+        ev.stopPropagation();
+
+        let id = ev.currentTarget.getAttribute('data-id');
+        let index = tundra.currentProfiles.findIndex(person => person.id == id);
+        let removed = tundra.currentProfiles.splice(index, 1);
+        console.log(removed); //log out the removed card for now and the length
+
+        tundra.buildProfilesPage();
+        tundra.navWithoutEvent('profiles');
     }
 
 }
