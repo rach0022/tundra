@@ -182,7 +182,7 @@ const tundra = {
     //function to use the data from the profiles to build cards
     //will be split up into two functions, one to get the data and put that into the array (above)
     //and then this function to take said data and build the cards using tiny$hell
-    buildNewProfileCards: ({first, last, gender, avatar, distance}) => {
+    buildNewProfileCards: profile => {
         
         /* style of the card we want to create
                     <div class="card fixed active">
@@ -208,11 +208,12 @@ const tundra = {
 
         //now we set the individual details we want to liek classes, information, etc
         card.classList.add('card', 'fixed', 'active');
+        card.setAttribute('data-id', profile.id);
         infoText.classList.add('info');
-        headerText.textContent = first + ' ' + last;
-        distText.textContent = distance;
-        genderText.textContent = gender[0].toUpperCase() + gender.substring(1);
-        poster.src = 'http:' + tundra.imgBaseUrl + avatar;
+        headerText.textContent = profile.first + ' ' + profile.last;
+        distText.textContent = profile.distance;
+        genderText.textContent = profile.gender[0].toUpperCase() + profile.gender.substring(1);
+        poster.src = 'http:' + tundra.imgBaseUrl + profile.avatar;
 
         //now we append the elements in the proper order
         heading.appendChild(headerText);
