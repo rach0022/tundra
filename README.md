@@ -9,7 +9,8 @@
 - [x] figure out why content security policy doesnt work on android or ios (solved: use cordova whitelist to allow connection intents)
 #### Code:
 - [x] setup enviroment variablres for android development
-- [x] learn how to use cordova merges folder: https://www.youtube.com/watch?v=PPI_9ilON7Y&feature=emb_title
+- [x] learn how to use cordova merges folder: https://www.youtube.com/watch?v=PPI_9ilON7Y&
+feature=emb_title
 - [x] use session storage to save the saved profiles from the user (now to actually use saved profiles)
 - [x] make fetch calls from http://griffis.edumedia.ca/mad9022/tundra/get.profiles.php?gender=female to get data
 - [x] based on data got form above, build cards in the tiny$hell format to append to the home div
@@ -17,6 +18,8 @@
 - [x] add tiny$hell to this project (hosted for offline use)
 - [x] (optional) get google fonts for this project (rokkit and Rubik)
 - [x] select a colour scheme to use through the app (in /res/sass/_variables.scss)
+- [ ] check session storage to make sure it is saving properly
+- [ ] change original build cards function to append all profiles to the curerntProfiles instead of overwritting
 
 #### Project Details: 
 - [ ] This app will let you create a Cordova app that will run on both Android and iOS. The core JavaScript that we use will be the same for both versions. However, there may be a few script and style things that are different between the two platforms. We will use the merge folder to handle these differences.

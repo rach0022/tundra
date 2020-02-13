@@ -22,7 +22,7 @@ const tundra = {
     profilesApiUrl: 'http://griffis.edumedia.ca/mad9022/tundra/get.profiles.php?gender=',
     imgBaseUrl: null, //will be loaded in everytime we make a call to the steve api
     genderParameter: null, //the gender parameter for the query in the url above
-    currentProfiles: null, //the current loaded profiles, max is 11 (8 at first and then reload when 3 remaining)
+    currentProfiles: [], //the current loaded profiles, max is 11 (8 at first and then reload when 3 remaining)
     savedProfiles: null, //these are the saved profiles for the user that are stored in session storage
     sessionKey: null, //the session key that will be used to read and write to the session storage, based on device uuid
 
@@ -165,14 +165,14 @@ const tundra = {
             .then(response => response.json())
             .then(data =>{
                 //first we will decode the imgBaseURL given from the api
-                //and set that value to the tundra.imgBaseUrl and then we will set the
-                //profiles to tundra.currentProfiles
+                //and set that value to the tundra.imgBaseUrl
                 tundra.imgBaseUrl = decodeURIComponent(data.imgBaseURL);
-                tundra.currentProfiles = data.profiles;
+                // tundra.currentProfiles += data.profiles;
 
-                //now we will loop through all the elements of profiles and buikld
-                //new cards for them
-                tundra.currentProfiles.forEach(profile =>{
+                //now we will loop through all the elements of profiles and build
+                //new cards for them and push them onto the currentProfiles array
+                data.profiles.forEach(profile =>{
+                    tundra.currentProfiles.push(profile);
                     tundra.buildNewProfileCards(profile);
                 })
                 console.log(tundra.currentProfiles, tundra.imgBaseUrl);
