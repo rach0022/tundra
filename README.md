@@ -31,12 +31,12 @@ feature=emb_title
 - [ ] This app will let you create a Cordova app that will run on both Android and iOS. The core JavaScript that we use will be the same for both versions. However, there may be a few script and style things that are different between the two platforms. We will use the merge folder to handle these differences.
 - [ ] You will building a two screen Single Page Application as a Cordova App.
 - [ ] The first screen will show cards with pictures, names and other details. The user will be able to swipe left or right on the card. When the user swipes left or right you need to use a CSS transition to animate the card off the screen in the correct direction.
-- [ ] Swiping left will delete the card and discard all that data.
-- [ ] Swiping right will save the person's information in an array that gets stored in sessionStorage, NOT localStorage. By using sessionStorage, the list of saved people will be cleared out each time the browser is closed.
-- [ ] The second screen will show a list view of all the people that the user swiped right on. This list will be retrieved from sessionStorage
-- [ ] When the app starts, you need to make a fetch call to the Tundra API - http://griffis.edumedia.ca/mad9022/tundra/get.profiles.php?gender=female 
-- [ ] The queryString parameter gender can be female, male or left blank. If left blank, you will get a random selection of people from either gender from the API.
-- [ ] The data that returns from the fetch will look something like this:
+- [x] Swiping left will delete the card and discard all that data.
+- [x] Swiping right will save the person's information in an array that gets stored in sessionStorage, NOT localStorage. By using sessionStorage, the list of saved people will be cleared out each time the browser is closed.
+- [x] The second screen will show a list view of all the people that the user swiped right on. This list will be retrieved from sessionStorage
+- [x] When the app starts, you need to make a fetch call to the Tundra API - http://griffis.edumedia.ca/mad9022/tundra/get.profiles.php?gender=female 
+- [x] The queryString parameter gender can be female, male or left blank. If left blank, you will get a random selection of people from either gender from the API.
+- [x] The data that returns from the fetch will look something like this:
 ````JSON
 {"imgBaseURL":"%2F%2Fgriffis.edumedia.ca%2Fmad9022%2Ftundra%2Fprofiles%2F",
 "profiles":[
@@ -50,20 +50,20 @@ feature=emb_title
 ````
 - [x] Note that each person object will contain a first name, last name, and an avatar image. The images all sit inside the folder defined in the imgBaseURL property at the root level. You will need to use the decodeURLComponent() method to use the value of imgBaseURL. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/decodeURIComponent . An example of a complete URL for an image would be //griffis.edumedia.ca/mad9022/tundra/profiles/f-009.jpg.
 
-- [ ] The profiles array from the data should be looped through and a single card created for each profile.
+- [x] The profiles array from the data should be looped through and a single card created for each profile.
 - [ ] after the user swipes the profile card, and after the transition animation has finished be sure to remove the card from the DOM.
 
 #### Getting New Profiles:
-- [ ] We don't want the user to have to ask for more profiles to be downloaded.
-- [ ] So, each time we remove a card from the DOM, following a swipe left or right, check the number of cards left. If the number of cards is less than 3, do another fetch to get more profiles. When those profiles are returned, create more cards.
-- [ ] Hint: reuse your functions from the original fetch and building of cards.
+- [x] We don't want the user to have to ask for more profiles to be downloaded.
+- [x] So, each time we remove a card from the DOM, following a swipe left or right, check the number of cards left. If the number of cards is less than 3, do another fetch to get more profiles. When those profiles are returned, create more cards.
+- [x] Hint: reuse your functions from the original fetch and building of cards.
 
 #### After Swiping Cards:
 - [ ] After the user has swiped a card to the left or the right, then you need to display a message to them confirming that the the profile has been rejected | dismissed | deleted OR saved | favourited | kept | stored. The terminology is up to you. What is important is that you show a confirmation.
 - [ ] The message should be an overlay. The user needs to be able to read it while the card is being animated off the screen. Then the message disappears while the new card appears.
 
 #### Favourites Screen:
-- [ ] On the second screen when you display the saved profiles, you should show three things:
+- [x] On the second screen when you display the saved profiles, you should show three things:
     1. The full name of the profile
     2. A small version of the image as an avatar
     3. A delete icon button
