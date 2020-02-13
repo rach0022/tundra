@@ -7,8 +7,9 @@
 - [x] fix the img-src for the content secutiry policy to allow image sto be displayed
 - [x] fix the default-src to allow for calls to steve api for phone
 - [x] figure out why content security policy doesnt work on android or ios (solved: use cordova whitelist to allow connection intents)
-- [ ] figure out why When switching from profiles to home the active class is not removed from the profiles page div
-- [ ] figure out why i cannot delete a profile from the saved profiles array (the removed profile does not match the one clicked on and the page will not refresh itself to rebuild itself)
+- [x] figure out why When switching from profiles to home the active class is not removed from the profiles page div (issue in firefox not chrome or on app)
+- [x] figure out why i cannot delete a profile from the saved profiles array (the removed profile does not match the one clicked on and the page will not refresh itself to rebuild itself)
+- [ ] figure out why id does not match the proper deleted profile becuase I always delete the last one (array.find did not find a match)
 #### Code:
 - [x] setup enviroment variablres for android development
 - [x] learn how to use cordova merges folder: https://www.youtube.com/watch?v=PPI_9ilON7Y&

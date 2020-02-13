@@ -384,10 +384,10 @@ const tundra = {
         ev.stopPropagation();
 
         let id = ev.currentTarget.getAttribute('data-id');
-        let index = tundra.currentProfiles.findIndex(person => person.id == id);
-        let removed = tundra.currentProfiles.splice(index, 1);
+        let index = tundra.savedProfiles.findIndex(person => person.id == id);
+        let removed = tundra.savedProfiles.splice(index, 1);
         console.log(removed); //log out the removed card for now and the length
-
+        tundra.setProfiles();
         tundra.buildProfilesPage();
         tundra.navWithoutEvent('profiles');
     }
