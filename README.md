@@ -18,8 +18,11 @@ feature=emb_title
 - [x] add tiny$hell to this project (hosted for offline use)
 - [x] (optional) get google fonts for this project (rokkit and Rubik)
 - [x] select a colour scheme to use through the app (in /res/sass/_variables.scss)
-- [ ] check session storage to make sure it is saving properly
-- [ ] change original build cards function to append all profiles to the curerntProfiles instead of overwritting
+- [x] check session storage to make sure it is saving properly
+- [x] change original build cards function to append all profiles to the curerntProfiles instead of overwritting
+- [x] add more cards once the user hits a minimum 
+- [ ] build the Profiles page based on what is in the saved profiles array using the skeleton in the html as a base
+- [ ] use reveal-left or reveal-right to show the delete button 
 
 #### Project Details: 
 - [ ] This app will let you create a Cordova app that will run on both Android and iOS. The core JavaScript that we use will be the same for both versions. However, there may be a few script and style things that are different between the two platforms. We will use the merge folder to handle these differences.

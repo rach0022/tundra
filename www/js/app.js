@@ -23,9 +23,9 @@ const tundra = {
     imgBaseUrl: null, //will be loaded in everytime we make a call to the steve api
     genderParameter: null, //the gender parameter for the query in the url above
     currentProfiles: [], //the current loaded profiles, max is 11 (8 at first and then reload when 3 remaining)
-    savedProfiles: null, //these are the saved profiles for the user that are stored in session storage
+    savedProfiles: [], //these are the saved profiles for the user that are stored in session storage
     sessionKey: null, //the session key that will be used to read and write to the session storage, based on device uuid
-
+    PROFILE_MIN: 3, //profileMin is used to set the minimum number of profiles we can have before we load new ones
     //init function for app, runs after Device Ready or DOMContentLoaded
     init: () => {
         tundra.pages = document.querySelectorAll('.page');
@@ -184,6 +184,18 @@ const tundra = {
             })
     },
 
+    //function to check the length of the currentProfiles array and if its < 3 then we will
+    //load in new profiles with the above function otherwise do nothing
+    //we will preform this check in the removeCard function below
+    checkCurrentLoadedProfiles: function(){
+        let len = tundra.currentProfiles.length;
+
+        if(len < tundra.PROFILE_MIN){
+            tundra.getNewProfiles();
+        }
+        console.log(len);
+    },
+
     //function to use the data from the profiles to build cards
     //will be split up into two functions, one to get the data and put that into the array (above)
     //and then this function to take said data and build the cards using tiny$hell
@@ -250,7 +262,7 @@ const tundra = {
         //now to remove the card from the currentProfiles array
         let index = tundra.currentProfiles.findIndex(person => person.id == id);
         let removed = tundra.currentProfiles.splice(index, 1);
-        console.log(removed, tundra.currentProfiles.length); //log out the removed card for now and the length
+        console.log(removed); //log out the removed card for now and the length
     },
 
     //function to swipe right, this will add the profile from currentProfiles to 
@@ -268,10 +280,10 @@ const tundra = {
         //currentProfiles (while also checking the length)
         tundra.getSavedProfiles();
         let index = tundra.currentProfiles.findIndex(person => person.id == id);
-        let removed = tundra.currentProfiles.splice(index, 1);
-        tundra.savedProfiles.push(removed);
+        let saved = tundra.currentProfiles.splice(index, 1);
+        tundra.savedProfiles.push(saved);
         tundra.setProfiles();
-        console.log(removed, tundra.currentProfiles.length);
+        console.log(saved, tundra.savedProfiles);
     },
 
     //helper function to remove the card from the html:
@@ -285,6 +297,7 @@ const tundra = {
             }.bind(card), 
             500 //ms
         );
+        tundra.checkCurrentLoadedProfiles();
     }
 
 }
