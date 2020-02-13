@@ -62,7 +62,7 @@ const tundra = {
 
         //start of tundra based initilization code
         //first we set the gender parameter:
-        tundra.genderParameter = 'male';
+        tundra.genderParameter = 'female';
         tundra.getProfiles(); //testing the get profiles function
     },
 
