@@ -44,6 +44,20 @@ html {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Rokkitt', 'serif'; }
 
+.card header {
+  width: 100%; }
+  .card header h2 {
+    width: 100%;
+    color: #281E30;
+    text-align: center; }
+.card .info {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
+  .card .info p {
+    color: #281E30; }
+
 body {
   padding: 0;
   margin: 0;

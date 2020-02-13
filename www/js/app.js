@@ -183,9 +183,47 @@ const tundra = {
     //will be split up into two functions, one to get the data and put that into the array (above)
     //and then this function to take said data and build the cards using tiny$hell
     buildNewProfileCards: ({first, last, gender, avatar, distance}) => {
+        
+        /* style of the card we want to create
+                    <div class="card fixed active">
+                        <header>
+                            <h2>Ms. Temp Orary</h2>
+                        </header>
+                        <img src="#" alt="Test Image">
+                        <div class="info">
+                            <p>NAME</p>
+                            <p>DISTANCE</p>
+                        </div>
+                    </div>
+        */
+
+        //first we will create all the elements of the card
+        let card = document.createElement('div');
+        let heading = document.createElement('header');
+        let headerText = document.createElement('h2');
         let poster = document.createElement('img');
+        let infoText = document.createElement('div');
+        let genderText = document.createElement('p');
+        let distText = document.createElement('p');
+
+        //now we set the individual details we want to liek classes, information, etc
+        card.classList.add('card', 'fixed', 'active');
+        infoText.classList.add('info');
+        headerText.textContent = first + ' ' + last;
+        distText.textContent = distance;
+        genderText.textContent = gender[0].toUpperCase() + gender.substring(1);
         poster.src = 'http:' + tundra.imgBaseUrl + avatar;
-        document.getElementById('home').appendChild(poster);
+
+        //now we append the elements in the proper order
+        heading.appendChild(headerText);
+        infoText.appendChild(genderText);
+        infoText.appendChild(distText);
+        card.appendChild(heading);
+        card.appendChild(poster);
+        card.appendChild(infoText);
+
+        document.getElementById('home-section').appendChild(card);
+
     }
 
 }
