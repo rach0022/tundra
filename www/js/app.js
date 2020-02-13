@@ -73,6 +73,11 @@ const tundra = {
 
         tundra.genderParameter = 'female';
         tundra.getNewProfiles(); //testing the get profiles function
+
+        //now lets initialize the a new instance of Tiny$hell on the profiles sections and home section
+        // let home_sect = document.getElementById('home-section');
+        // let profile_sect = document.getElementById('profile-section');
+
     },
 
     nav: ev =>{
@@ -223,8 +228,63 @@ const tundra = {
         card.appendChild(poster);
         card.appendChild(infoText);
 
+        //now to make the card into its own instance of Tiny$hell
+        let tinyCard = new tinyshell(card);
+        tinyCard.addEventListener('swipeleft', tundra.swipeLeft);
+        tinyCard.addEventListener('swiperight', tundra.swipeRight);
         document.getElementById('home-section').appendChild(card);
 
+    },
+
+    //functions to swipeLeft and swipeRight (delete and save)
+    //swipeLeft will move the card off the screen and trigger
+    //the function calls to remove the card from here and from the array
+    swipeLeft: ev =>{
+        let card = ev.currentTarget;
+        let id = ev.currentTarget.getAttribute('data-id');
+
+        //add the class to the div to move it to the left and then remove the card
+        card.classList.add('moveleft');
+        tundra.removeCard(card);
+
+        //now to remove the card from the currentProfiles array
+        let index = tundra.currentProfiles.findIndex(person => person.id == id);
+        let removed = tundra.currentProfiles.splice(index, 1);
+        console.log(removed, tundra.currentProfiles.length); //log out the removed card for now and the length
+    },
+
+    //function to swipe right, this will add the profile from currentProfiles to 
+    //savedProfiles (we should load in the saved profiles first)
+    swipeRight: ev =>{
+        let card = ev.currentTarget;
+        let id = ev.currentTarget.getAttribute('data-id');
+
+        //add the class to the card to make it move to the right and then remove the card
+        card.classList.add('moveright');
+        tundra.removeCard(card);
+
+        //now first we check the savedProfiles from session storage, add the correspoding
+        //person object to the array of savedProfiles and then setSavedProfiles and remove from 
+        //currentProfiles (while also checking the length)
+        tundra.getSavedProfiles();
+        let index = tundra.currentProfiles.findIndex(person => person.id == id);
+        let removed = tundra.currentProfiles.splice(index, 1);
+        tundra.savedProfiles.push(removed);
+        tundra.setProfiles();
+        console.log(removed, tundra.currentProfiles.length);
+    },
+
+    //helper function to remove the card from the html:
+    removeCard: card =>{
+        //now using a timeout of 500ms lets remove the card
+        //completely from the html
+        setTimeout(
+            function(){
+                //remove the div from the parent element
+                this.parentElement.removeChild(this);
+            }.bind(card), 
+            500 //ms
+        );
     }
 
 }

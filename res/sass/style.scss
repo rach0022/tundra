@@ -16,6 +16,8 @@ h1, h2, h3, h4, h5, h6{
 
 //selector for the card elements form tiny$hell
 .card{
+    transition: transform 500ms ease-in;
+    transform: translateX(0); //initial transformation to allow it to move later
     header{
         width: 100%;
         h2{
@@ -32,6 +34,12 @@ h1, h2, h3, h4, h5, h6{
         p{
             color: $dark-shade;
         }
+    }
+    .moveleft{
+        transform: translateX(-300%); //swiping the card off the screen to the left
+    }
+    .moveright{
+        transform: translateX(300%); //swiping the card off the screen to the right
     }
 }
 

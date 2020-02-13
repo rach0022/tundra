@@ -7,13 +7,13 @@
     "files": {}
   },
   "installed_plugins": {
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.algonquinlive.rach0022.tundra"
+    },
     "cordova-plugin-splashscreen": {
       "PACKAGE_NAME": "com.algonquinlive.rach0022.tundra"
     },
     "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "com.algonquinlive.rach0022.tundra"
-    },
-    "cordova-plugin-device": {
       "PACKAGE_NAME": "com.algonquinlive.rach0022.tundra"
     }
   },
