@@ -3,11 +3,16 @@
 
 #### Bugs to Fix:
 - [ ] Figure out why reveal right and left do not work
-- [ ] Fix Content Security Policy to include calls to Steve's API
+- [x] Fix Content Security Policy for the following
+- [x] fix the img-src for the content secutiry policy to allow image sto be displayed
+- [x] fix the default-src to allow for calls to steve api for phone
+- [x] figure out why content security policy doesnt work on android or ios (solved: use cordova whitelist to allow connection intents)
 #### Code:
 - [x] setup enviroment variablres for android development
 - [x] learn how to use cordova merges folder: https://www.youtube.com/watch?v=PPI_9ilON7Y&feature=emb_title
-- [ ] make fetch calls from http://griffis.edumedia.ca/mad9022/tundra/get.profiles.php?gender=female to get data
+- [x] use session storage to save the saved profiles from the user (now to actually use saved profiles)
+- [x] make fetch calls from http://griffis.edumedia.ca/mad9022/tundra/get.profiles.php?gender=female to get data
+- [ ] based on data got form above, build cards in the tiny$hell format to append to the home div
 - [x] make splashscreen and icon (use https://pgicons.abiro.com/ to export)
 - [x] add tiny$hell to this project (hosted for offline use)
 - [x] (optional) get google fonts for this project (rokkit and Rubik)

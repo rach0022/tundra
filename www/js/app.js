@@ -16,11 +16,15 @@ const tundra = {
     appTextSource: {
         welcome: "Welcome to the Tundra Dating App",
         error: "Something Funky Happened, lets reload",
-        confirm: "Would you like to delete profile?"
+        confirm: "Would you like to delete profile?",
+        retrievalIssue: "We are sorry, we could not recover your saved profiles at this time, click home to start swiping on new profiles"
     },
     profilesApiUrl: 'http://griffis.edumedia.ca/mad9022/tundra/get.profiles.php?gender=',
-    genderParameter: null,
-    currentProfiles: null,
+    imgBaseUrl: null, //will be loaded in everytime we make a call to the steve api
+    genderParameter: null, //the gender parameter for the query in the url above
+    currentProfiles: null, //the current loaded profiles, max is 11 (8 at first and then reload when 3 remaining)
+    savedProfiles: null, //these are the saved profiles for the user that are stored in session storage
+    sessionKey: null, //the session key that will be used to read and write to the session storage, based on device uuid
 
     //init function for app, runs after Device Ready or DOMContentLoaded
     init: () => {
@@ -62,8 +66,13 @@ const tundra = {
 
         //start of tundra based initilization code
         //first we set the gender parameter:
+
+        //defining the session key
+        //set key based on device id
+        tundra.sessionKey = "device" in window ? "REVIEW" + device.uuid : "REVIEWTEMPKEY";
+
         tundra.genderParameter = 'female';
-        tundra.getProfiles(); //testing the get profiles function
+        tundra.getNewProfiles(); //testing the get profiles function
     },
 
     nav: ev =>{
@@ -123,21 +132,62 @@ const tundra = {
     },
 
     //Start of helper function definitions
+
+    //setProfiles & getSavedProfiles will be used to save (write) the profiles to session storage
+    //and then reload (read) the saved profiles, no input paramters as we are using the above variables defined
+    setProfiles: () =>{
+        //will use a try catch logic to save to the session storage whatever is in the 
+        //saved profiles array, using JSON.stringify to convert it
+        try{
+            let serializedProfiles = JSON.stringify(tundra.savedProfiles);
+            sessionStorage.setItem(tundra.sessionKey, serializedProfiles);
+        } 
+        catch (err){
+            console.log(tundra.appTextSource.error, '\n', err);
+        }
+    },
+    getSavedProfiles: () =>{
+        if(sessionStorage.getItem(tundra.sessionKey)){
+            tundra.savedProfiles = JSON.parse(sessionStorage.getItem(tundra.sessionKey));
+        } else {
+            console.log(tundra.appTextSource.retrievalIssue);
+        }
+    },
     //getProfiles will preform a fetch call to the tundra.profilesApiUrl + genderParameter
     //and will add the results to the tundra.currentProfiles array
-    getProfiles: function() {
+    getNewProfiles: function() {
         fetch(tundra.profilesApiUrl+tundra.genderParameter)
             .then(response => response.json())
             .then(data =>{
-                //add the data to the array
-                console.log(data); 
+                //first we will decode the imgBaseURL given from the api
+                //and set that value to the tundra.imgBaseUrl and then we will set the
+                //profiles to tundra.currentProfiles
+                tundra.imgBaseUrl = decodeURIComponent(data.imgBaseURL);
+                tundra.currentProfiles = data.profiles;
+
+                //now we will loop through all the elements of profiles and buikld
+                //new cards for them
+                tundra.currentProfiles.forEach(profile =>{
+                    tundra.buildNewProfileCards(profile);
+                })
+                console.log(tundra.currentProfiles, tundra.imgBaseUrl);
             })
             .catch(err => {
                 //for now we will console log the error later on we will
                 //switch the error overlay to active to show that an error has occured
                 console.log(err);
             })
+    },
+
+    //function to use the data from the profiles to build cards
+    //will be split up into two functions, one to get the data and put that into the array (above)
+    //and then this function to take said data and build the cards using tiny$hell
+    buildNewProfileCards: ({first, last, gender, avatar, distance}) => {
+        let poster = document.createElement('img');
+        poster.src = 'http:' + tundra.imgBaseUrl + avatar;
+        document.getElementById('home').appendChild(poster);
     }
+
 }
 
 //copied from https://prof3ssorst3v3.github.io/mad9014/modules/week13/#domcontentloaded-vs-deviceready
