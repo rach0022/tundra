@@ -2,7 +2,7 @@
 ## Cold Climate Dating App
 
 #### Bugs to Fix:
-- [ ] Issue with switching back to home div after going to profiles (active css class wont turn off)
+- [ ] Issue with switching back to home div after going to profiles (active css class wont turn off, change .page code to stop conflicting with Tiny$hell
 - [ ] Issue with css transition not showing the card moving in either direction
 - [x] Figure out why reveal right and left do not work (wasn't using an instance of tiny$hell on the list-item)
 - [x] Fix Content Security Policy for the following
@@ -34,13 +34,14 @@ feature=emb_title
 - [x] change original build cards function to append all profiles to the curerntProfiles instead of overwritting
 - [x] add more cards once the user hits a minimum 
 - [x] build the Profiles page based on what is in the saved profiles array using the skeleton in the html as a base using list from Tiny$hell
-- [ ] use action-right or reveal-right to show the delete button 
+- [x] use action-right or reveal-right to show the delete button
+- [ ] add 2 overlays (one for saved and deleted) and then add a class to .overlay called hidden/ deactive that we will turn off to show the overlay for about 400ms then hide again
 
 
 #### Project Details: 
 - [ ] This app will let you create a Cordova app that will run on both Android and iOS. The core JavaScript that we use will be the same for both versions. However, there may be a few script and style things that are different between the two platforms. We will use the merge folder to handle these differences.
-- [ ] You will building a two screen Single Page Application as a Cordova App.
-- [ ] The first screen will show cards with pictures, names and other details. The user will be able to swipe left or right on the card. When the user swipes left or right you need to use a CSS transition to animate the card off the screen in the correct direction.
+- [x] You will building a two screen Single Page Application as a Cordova App.
+- [x] The first screen will show cards with pictures, names and other details. The user will be able to swipe left or right on the card. When the user swipes left or right you need to use a CSS transition to animate the card off the screen in the correct direction.
 - [x] Swiping left will delete the card and discard all that data.
 - [x] Swiping right will save the person's information in an array that gets stored in sessionStorage, NOT localStorage. By using sessionStorage, the list of saved people will be cleared out each time the browser is closed.
 - [x] The second screen will show a list view of all the people that the user swiped right on. This list will be retrieved from sessionStorage
@@ -61,7 +62,7 @@ feature=emb_title
 - [x] Note that each person object will contain a first name, last name, and an avatar image. The images all sit inside the folder defined in the imgBaseURL property at the root level. You will need to use the decodeURLComponent() method to use the value of imgBaseURL. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/decodeURIComponent . An example of a complete URL for an image would be //griffis.edumedia.ca/mad9022/tundra/profiles/f-009.jpg.
 
 - [x] The profiles array from the data should be looped through and a single card created for each profile.
-- [ ] after the user swipes the profile card, and after the transition animation has finished be sure to remove the card from the DOM.
+- [x] after the user swipes the profile card, and after the transition animation has finished be sure to remove the card from the DOM.
 
 #### Getting New Profiles:
 - [x] We don't want the user to have to ask for more profiles to be downloaded.
@@ -77,7 +78,7 @@ feature=emb_title
     1. The full name of the profile
     2. A small version of the image as an avatar
     3. A delete icon button
-- [ ] When the user clicks on the delete button you will need to remove that profile from BOTH the list view AND sessionStorage. You will need to use the id from the profile to identify which person to delete from sessionstorage.
+- [x] When the user clicks on the delete button you will need to remove that profile from BOTH the list view AND sessionStorage. You will need to use the id from the profile to identify which person to delete from sessionstorage.
 
 
 #### Submission Requirements: 
