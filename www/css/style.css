@@ -71,6 +71,9 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   align-items: center; }
 
+.overlay.deactive {
+  display: none; }
+
 body {
   padding: 0;
   margin: 0;
@@ -85,26 +88,12 @@ main {
 
 .page {
   box-sizing: border-box;
-  min-height: 100vh;
-  width: 100vw;
-  position: absolute;
   top: 0;
   left: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 2rem;
-  opacity: 0;
-  z-index: 1;
-  transition: opacity 0.4s linear; }
+  font-size: 2rem; }
 
 .page:last-child {
   border: none; }
-
-.page.active {
-  opacity: 1;
-  z-index: 100; }
 
 #home {
   background-color: #B53B51;
