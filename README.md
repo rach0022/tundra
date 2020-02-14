@@ -2,6 +2,8 @@
 ## Cold Climate Dating App
 
 #### Bugs to Fix:
+- [ ] Issue with switching back to home div after going to profiles (active css class wont turn off)
+- [ ] Issue with css transition not showing the card moving in either direction
 - [x] Figure out why reveal right and left do not work (wasn't using an instance of tiny$hell on the list-item)
 - [x] Fix Content Security Policy for the following
 - [x] fix the img-src for the content secutiry policy to allow image sto be displayed
