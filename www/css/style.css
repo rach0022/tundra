@@ -107,9 +107,10 @@ main {
   z-index: 100; }
 
 #home {
-  background-color: #281E30; }
+  background-color: #B53B51;
+  overflow-y: hidden; }
 
 #profiles {
-  background-color: #B53B51; }
+  background-color: #281E30; }
 
 /*# sourceMappingURL=style.css.map */

@@ -89,8 +89,9 @@ main {
     z-index: $z-base;
 }
 #home {
-    background-color: $dark-shade;
+    background-color: $dark-accent;
+    overflow-y: hidden;
 }
 #profiles {
-    background-color: $dark-accent;
+    background-color: $dark-shade;
 }

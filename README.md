@@ -2,14 +2,21 @@
 ## Cold Climate Dating App
 
 #### Bugs to Fix:
-- [ ] Figure out why reveal right and left do not work
+- [x] Figure out why reveal right and left do not work (wasn't using an instance of tiny$hell on the list-item)
 - [x] Fix Content Security Policy for the following
 - [x] fix the img-src for the content secutiry policy to allow image sto be displayed
 - [x] fix the default-src to allow for calls to steve api for phone
 - [x] figure out why content security policy doesnt work on android or ios (solved: use cordova whitelist to allow connection intents)
 - [x] figure out why When switching from profiles to home the active class is not removed from the profiles page div (issue in firefox not chrome or on app)
 - [x] figure out why i cannot delete a profile from the saved profiles array (the removed profile does not match the one clicked on and the page will not refresh itself to rebuild itself)
-- [ ] figure out why id does not match the proper deleted profile becuase I always delete the last one (array.find did not find a match)
+- [x] figure out why id does not match the proper deleted profile because I always delete the last one (array.find did not find a match) | was using person.id in for each when it was person[0].id
+
+##### iOS Bugs:
+- [ ] figure out why all swipe rights are invalid swiperights
+
+##### Android Bugs:
+- [ ] fix icons for android, use adapative icons as well as legacy icons
+
 #### Code:
 - [x] setup enviroment variablres for android development
 - [x] learn how to use cordova merges folder: https://www.youtube.com/watch?v=PPI_9ilON7Y&
