@@ -80,6 +80,9 @@ const tundra = {
         // let home_sect = document.getElementById('home-section');
         // let profile_sect = document.getElementById('profile-section');
 
+        //testtimeout:
+        tundra.testTimeOut();
+
     },
 
     nav: ev =>{
@@ -258,6 +261,7 @@ const tundra = {
     swipeLeft: ev =>{
         let card = ev.currentTarget;
         let id = ev.currentTarget.getAttribute('data-id');
+        tundra.toggleTimeout('deactive', 400, document.getElementById('deleted')); //showing the overlay
 
         //add the class to the div to move it to the left and then remove the card
         card.classList.add('moveleft');
@@ -274,6 +278,7 @@ const tundra = {
     swipeRight: ev =>{
         let card = ev.currentTarget;
         let id = ev.currentTarget.getAttribute('data-id');
+        tundra.toggleTimeout('deactive', 400, document.getElementById('saved')); //showing the overlay
 
         //add the class to the card to make it move to the right and then remove the card
         card.classList.add('moveright');
@@ -390,7 +395,22 @@ const tundra = {
         tundra.setProfiles();
         tundra.buildProfilesPage();
         tundra.navWithoutEvent('profiles');
+    },
+
+    //helper function to turn off or on a class, paramter will be the class name that you want to
+    //toggle and the function will then untoggle that class after a timeout (in ms) that is specified 
+    //on a specific element (3 param), use case will look like tundra.toggleTimeOut('deactive', 400, document.getElementById('saved')); 
+    toggleTimeout: (className, duration, element) =>{
+        setTimeout(() =>{
+            element.classList.toggle(className)
+        }, duration);
+        element.classList.toggle(className);
     }
+
+    // testTimeOut: function () {
+    //     //test function for above to make sure it works (UPDATE: IT WORKS)
+    //     tundra.toggleTimeout('deactive', 3000, document.getElementById('saved'));
+    // }
 
 }
 

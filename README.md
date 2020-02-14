@@ -35,7 +35,8 @@ feature=emb_title
 - [x] add more cards once the user hits a minimum 
 - [x] build the Profiles page based on what is in the saved profiles array using the skeleton in the html as a base using list from Tiny$hell
 - [x] use action-right or reveal-right to show the delete button
-- [ ] add 2 overlays (one for saved and deleted) and then add a class to .overlay called hidden/ deactive that we will turn off to show the overlay for about 400ms then hide again
+- [x] add 2 overlays (one for saved and deleted) and then add a class to .overlay called hidden/ deactive that we will turn off to show the overlay for about 400ms then hide again
+- [ ] finish styling for everything
 
 
 #### Project Details: 
@@ -70,8 +71,8 @@ feature=emb_title
 - [x] Hint: reuse your functions from the original fetch and building of cards.
 
 #### After Swiping Cards:
-- [ ] After the user has swiped a card to the left or the right, then you need to display a message to them confirming that the the profile has been rejected | dismissed | deleted OR saved | favourited | kept | stored. The terminology is up to you. What is important is that you show a confirmation.
-- [ ] The message should be an overlay. The user needs to be able to read it while the card is being animated off the screen. Then the message disappears while the new card appears.
+- [x] After the user has swiped a card to the left or the right, then you need to display a message to them confirming that the the profile has been rejected | dismissed | deleted OR saved | favourited | kept | stored. The terminology is up to you. What is important is that you show a confirmation.
+- [x] The message should be an overlay. The user needs to be able to read it while the card is being animated off the screen. Then the message disappears while the new card appears.
 
 #### Favourites Screen:
 - [x] On the second screen when you display the saved profiles, you should show three things:
