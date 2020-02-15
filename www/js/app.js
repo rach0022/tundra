@@ -81,7 +81,7 @@ const tundra = {
         // let profile_sect = document.getElementById('profile-section');
 
         //testtimeout:
-        tundra.testTimeOut();
+        //REMOVED tundra.testTimeOut();
 
     },
 
