@@ -40,7 +40,7 @@ feature=emb_title
 - [ ] finish styling for everything
 - [ ] build the buttons to switch gender depending on what device we are on or switch the sections class to ios/ android depending on which device
 - [x] add the npm package animate.css
-- [ ] add an "active" class to the button and change its style to show the user which is selected
+- [x] add an "active" class to the button and change its style to show the user which is selected
 - [ ] start animate.css docs here: https://github.com/daneden/animate.css/
 
 

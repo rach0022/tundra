@@ -25,6 +25,10 @@ h1, h2, h3, h4, h5, h6{
             border: none;
             text-align: center;
             min-width: 75px;
+            &.active{
+                background-color: $dark-accent;
+                // border: inset 2px solid $dark-shade;
+            }
         }
     }
 }

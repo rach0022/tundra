@@ -426,6 +426,10 @@ const tundra = {
             tundra.genderParameter =  newParam; //we should do some validation on the parameter later
             tundra.currentProfiles = []; //clear out the current profiles
             tundra.getNewProfiles(); //get new profiles
+
+            //change the button class depending on what is active and what is pressed
+            document.querySelector('.btn-small.active').classList.remove('active');
+            ev.currentTarget.classList.add('active');
         }
     }
 }

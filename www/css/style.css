@@ -56,6 +56,8 @@ h1, h2, h3, h4, h5, h6 {
     border: none;
     text-align: center;
     min-width: 75px; }
+    #home .buttonbox .btn-small.active {
+      background-color: #B53B51; }
 
 .card {
   transition: transform 500ms ease-in;
