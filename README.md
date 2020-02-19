@@ -37,6 +37,7 @@ feature=emb_title
 - [x] use action-right or reveal-right to show the delete button
 - [x] add 2 overlays (one for saved and deleted) and then add a class to .overlay called hidden/ deactive that we will turn off to show the overlay for about 400ms then hide again
 - [ ] finish styling for everything
+- [ ] build the buttons to switch gender depending on what device we are on or switch the sections class to ios/ android depending on which device
 
 
 #### Project Details: 
