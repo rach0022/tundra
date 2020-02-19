@@ -123,7 +123,7 @@ const tundra = {
         window.scrollTo(0,0);
 
         //switch the active div:
-        document.querySelector('.active').classList.remove('active');
+        document.querySelector('.page.active').classList.remove('active');
         document.querySelector(`#${target}`).classList.add('active');
 
         // switch case method to change app properties based on which page is showing

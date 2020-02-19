@@ -3,7 +3,7 @@
 
 #### Bugs to Fix:
 - [x] Check old parameter for button so we dont keep rereshing the entire array when constantly clicking the button
-- [ ] Issue with switching back to home div after going to profiles (active css class wont turn off, change .page code to stop conflicting with Tiny$hell
+- [x] Issue with switching back to home div after going to profiles (active css class wont turn off, change .page code to stop conflicting with Tiny$hell (add .page.active to the query as it wasnt specific enough and was conflicting with the .active classes from tiny$hell)
 - [ ] Issue with css transition not showing the card moving in either direction
 - [x] Figure out why reveal right and left do not work (wasn't using an instance of tiny$hell on the list-item)
 - [x] Fix Content Security Policy for the following
@@ -15,13 +15,13 @@
 - [x] figure out why id does not match the proper deleted profile because I always delete the last one (array.find did not find a match) | was using person.id in for each when it was person[0].id
 
 ##### iOS Bugs:
-- [ ] figure out why all swipe rights are invalid swiperights
+- [ ] figure out why all swipe rights are invalid swiperights (might just be an issue on iphone 11 pro emulator, its fine on iphone 8 emulator and devices)
 
 ##### Android Bugs:
 - [ ] fix icons for android, use adapative icons as well as legacy icons
 
 #### Code:
-- [x] setup enviroment variablres for android development
+- [x] setup enviroment variables for android development
 - [x] learn how to use cordova merges folder: https://www.youtube.com/watch?v=PPI_9ilON7Y&
 feature=emb_title
 - [x] use session storage to save the saved profiles from the user (now to actually use saved profiles)
@@ -41,7 +41,7 @@ feature=emb_title
 - [ ] build the buttons to switch gender depending on what device we are on or switch the sections class to ios/ android depending on which device
 - [x] add the npm package animate.css
 - [x] add an "active" class to the button and change its style to show the user which is selected
-- [ ] start animate.css docs here: https://github.com/daneden/animate.css/
+- [ ] start using animate.css docs here: https://github.com/daneden/animate.css/ and link in the head of the html
 
 
 #### Project Details: 
