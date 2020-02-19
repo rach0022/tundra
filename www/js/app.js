@@ -57,13 +57,6 @@ const tundra = {
 
     //function to initialize all tundra based variables, this is run during init
     initTundra: () =>{
-        let home = document.getElementById('home');
-        let p = document.createElement('p');
-
-        p.textContent = "...Tundra Active"
-
-        home.appendChild(p);
-
         //start of tundra based initilization code
 
         //defining the session key
