@@ -23,7 +23,8 @@
 - [ ] fix icons for android, use adapative icons as well as legacy icons
 
 #### Code:
-- [ ] REMOVE ANIMATE.CSS
+- [ ] add my own css animations (using the keyframes)
+- [ ] build only one card at a time and then build a new card each time one is swiped
 - [x] setup enviroment variables for android development
 - [x] learn how to use cordova merges folder: https://www.youtube.com/watch?v=PPI_9ilON7Y&
 feature=emb_title
@@ -42,9 +43,7 @@ feature=emb_title
 - [x] add 2 overlays (one for saved and deleted) and then add a class to .overlay called hidden/ deactive that we will turn off to show the overlay for about 400ms then hide again
 - [ ] finish styling for everything
 - [ ] build the buttons to switch gender depending on what device we are on or switch the sections class to ios/ android depending on which device
-- [x] add the npm package animate.css
 - [x] add an "active" class to the button and change its style to show the user which is selected
-- [ ] start using animate.css docs here: https://github.com/daneden/animate.css/ and link in the head of the html
 
 
 #### Project Details: 
