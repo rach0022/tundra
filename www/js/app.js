@@ -270,7 +270,7 @@ const tundra = {
         let card = ev.currentTarget;
         let id = ev.currentTarget.getAttribute('data-id');
         tundra.toggleTimeout('deactive', 400, document.getElementById('deleted')); //showing the overlay
-        tundra.animateCSS(document.getElementById('deleted'), 'heartbeat', () => null);
+        tundra.animateCSS(document.querySelector('.overlay .message .icon.delete'), 'heartbeat'); //change query slector to something more specific
 
         //add the class to the div to move it to the left and then remove the card
         card.classList.add('moveleft');
@@ -288,7 +288,7 @@ const tundra = {
         let card = ev.currentTarget;
         let id = ev.currentTarget.getAttribute('data-id');
         tundra.toggleTimeout('deactive', 400, document.getElementById('saved')); //showing the overlay
-        tundra.animateCSS(document.getElementById('saved'), 'heartbeat', () => null);
+        tundra.animateCSS(document.querySelector('.overlay .message .icon.heart'), 'heartbeat'); //change query slector to something more specific
 
         //add the class to the card to make it move to the right and then remove the card
         card.classList.add('moveright');
@@ -356,6 +356,7 @@ const tundra = {
                 let list_item = document.createElement('li');
                 let poster = document.createElement('img');
                 let profile_name = document.createElement('div');
+                let list_label = document.createElement('p');
                 let del_button = document.createElement('div');
                 let span_icon = document.createElement('span');
     
@@ -366,7 +367,7 @@ const tundra = {
                 poster.alt = `Avatar image for ${profile[0].first} ${profile[0].last}`;
                 poster.classList.add('avatar');
                 profile_name.classList.add('list-text')
-                profile_name.textContent = `${profile[0].first} ${profile[0].last}`;
+                list_label.textContent = `${profile[0].first} ${profile[0].last}`;
                 del_button.classList.add('action-right');
                 del_button.setAttribute('data-id', profile[0].id); //set the id so we still have a link to the array
                 del_button.addEventListener('click', tundra.deleteProfile);
@@ -375,6 +376,7 @@ const tundra = {
                 //now to append the elements in the proper order to the list item and then
                 //make it into a new instace of tiny$hell and thenappend to the document fragment 
                 del_button.appendChild(span_icon);
+                profile_name.appendChild(list_label);
                 list_item.appendChild(poster);
                 list_item.appendChild(profile_name);
                 list_item.appendChild(del_button);

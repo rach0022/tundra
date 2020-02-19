@@ -81,11 +81,9 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateX(200%); }
 
 #profiles .list-view .list-item {
-  text-align: left;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center; }
+  min-height: 3rem; }
+  #profiles .list-view .list-item .list-text p {
+    padding-left: 3em; }
 
 .overlay.deactive {
   display: none; }
