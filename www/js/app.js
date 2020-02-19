@@ -76,12 +76,20 @@ const tundra = {
         //now we add the event listener for the build profile page callback
         document.querySelector('[data-href="profiles"]').addEventListener('click', tundra.buildProfilesPage);
 
+        //add event listeners for the buttons to switch gender paramter:
+        let genBtns = document.querySelectorAll('.gender');
+        genBtns.forEach(btn =>{
+            btn.addEventListener('click', tundra.switchGender);
+        });
+
         //now lets initialize the a new instance of Tiny$hell on the profiles sections and home section
         // let home_sect = document.getElementById('home-section');
         // let profile_sect = document.getElementById('profile-section');
 
         //testtimeout:
         //REMOVED tundra.testTimeOut();
+
+
 
     },
 
@@ -405,13 +413,18 @@ const tundra = {
             element.classList.toggle(className)
         }, duration);
         element.classList.toggle(className);
+    },
+
+    //callback function to switch the gender parameter depending on the button clicked
+    //we will clear out the currentProfiles array and reload new profiles after switching
+    //the gender paramter to the data-val attribute of the button clicked
+    switchGender: ev =>{
+        let newParam = ev.currentTarget.getAttribute('data-val');
+        tundra.genderParameter =  newParam; //we should do some validation on the parameter later
+        tundra.currentProfiles = []; //clear out the current profiles
+
+        tundra.getNewProfiles(); //get new profiles
     }
-
-    // testTimeOut: function () {
-    //     //test function for above to make sure it works (UPDATE: IT WORKS)
-    //     tundra.toggleTimeout('deactive', 3000, document.getElementById('saved'));
-    // }
-
 }
 
 //copied from https://prof3ssorst3v3.github.io/mad9014/modules/week13/#domcontentloaded-vs-deviceready

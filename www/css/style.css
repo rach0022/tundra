@@ -44,6 +44,19 @@ html {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Rokkitt', 'serif'; }
 
+#home .buttonbox {
+  position: relative;
+  top: 60vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; }
+  #home .buttonbox .btn-small {
+    background-color: #281E30;
+    border: none;
+    text-align: center;
+    min-width: 75px; }
+
 .card {
   transition: transform 500ms ease-in;
   transform: translateX(0); }
@@ -61,11 +74,12 @@ h1, h2, h3, h4, h5, h6 {
     .card .info p {
       color: #281E30; }
   .card .moveleft {
-    transform: translateX(-300%); }
+    transform: translateX(-200%); }
   .card .moveright {
-    transform: translateX(300%); }
+    transform: translateX(200%); }
 
 #profiles .list-view .list-item {
+  text-align: left;
   display: flex;
   flex-direction: row;
   justify-content: center;

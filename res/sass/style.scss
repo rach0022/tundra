@@ -14,6 +14,21 @@ h1, h2, h3, h4, h5, h6{
     font-family: 'Rokkitt', 'serif';
 }
 
+#home{
+    .buttonbox{
+        position: relative;
+        top: 60vh;
+        @include center(row);
+        
+        .btn-small{
+            background-color: $dark-shade;
+            border: none;
+            text-align: center;
+            min-width: 75px;
+        }
+    }
+}
+
 //selector for the card elements form tiny$hell
 .card{
     transition: transform 500ms ease-in;
@@ -36,16 +51,17 @@ h1, h2, h3, h4, h5, h6{
         }
     }
     .moveleft{
-        transform: translateX(-300%); //swiping the card off the screen to the left
+        transform: translateX(-200%); //swiping the card off the screen to the left
     }
     .moveright{
-        transform: translateX(300%); //swiping the card off the screen to the right
+        transform: translateX(200%); //swiping the card off the screen to the right
     }
 }
 
 #profiles{
     .list-view{
         .list-item{
+            text-align: left;
             @include center(row);
         }
     }
