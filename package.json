@@ -13,7 +13,6 @@
   "author": "Ravi Rachamalla",
   "license": "Apache-2.0",
   "dependencies": {
-    "animate.css": "^3.7.2",
     "cordova-android": "^8.1.0",
     "cordova-ios": "^5.1.1",
     "cordova-plugin-device": "^2.0.3",
