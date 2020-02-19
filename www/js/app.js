@@ -420,10 +420,13 @@ const tundra = {
     //the gender paramter to the data-val attribute of the button clicked
     switchGender: ev =>{
         let newParam = ev.currentTarget.getAttribute('data-val');
-        tundra.genderParameter =  newParam; //we should do some validation on the parameter later
-        tundra.currentProfiles = []; //clear out the current profiles
 
-        tundra.getNewProfiles(); //get new profiles
+        //check to see if the old param is the same as the current param (otherwise do nothing)
+        if(!(tundra.genderParameter == newParam)){
+            tundra.genderParameter =  newParam; //we should do some validation on the parameter later
+            tundra.currentProfiles = []; //clear out the current profiles
+            tundra.getNewProfiles(); //get new profiles
+        }
     }
 }
 

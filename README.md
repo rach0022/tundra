@@ -2,6 +2,7 @@
 ## Cold Climate Dating App
 
 #### Bugs to Fix:
+- [x] Check old parameter for button so we dont keep rereshing the entire array when constantly clicking the button
 - [ ] Issue with switching back to home div after going to profiles (active css class wont turn off, change .page code to stop conflicting with Tiny$hell
 - [ ] Issue with css transition not showing the card moving in either direction
 - [x] Figure out why reveal right and left do not work (wasn't using an instance of tiny$hell on the list-item)
@@ -38,6 +39,9 @@ feature=emb_title
 - [x] add 2 overlays (one for saved and deleted) and then add a class to .overlay called hidden/ deactive that we will turn off to show the overlay for about 400ms then hide again
 - [ ] finish styling for everything
 - [ ] build the buttons to switch gender depending on what device we are on or switch the sections class to ios/ android depending on which device
+- [x] add the npm package animate.css
+- [ ] add an "active" class to the button and change its style to show the user which is selected
+- [ ] start animate.css docs here: https://github.com/daneden/animate.css/
 
 
 #### Project Details: 
