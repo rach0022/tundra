@@ -1,0 +1,4 @@
+/* for iphone 11 we want to add this for the notch at the top of the screen  */
+main{
+    padding-top: 100px;
+}
