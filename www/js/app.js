@@ -263,7 +263,7 @@ const tundra = {
         let card = ev.currentTarget;
         let id = ev.currentTarget.getAttribute('data-id');
         tundra.toggleTimeout('deactive', 400, document.getElementById('deleted')); //showing the overlay
-        tundra.animateCSS(document.querySelector('.overlay .message .icon.delete'), 'heartbeat'); //change query slector to something more specific
+        // tundra.animateCSS(document.querySelector('.overlay .message .icon.delete'), 'heartbeat'); //change query slector to something more specific
 
         //add the class to the div to move it to the left and then remove the card
         card.classList.add('moveleft');
@@ -281,7 +281,7 @@ const tundra = {
         let card = ev.currentTarget;
         let id = ev.currentTarget.getAttribute('data-id');
         tundra.toggleTimeout('deactive', 400, document.getElementById('saved')); //showing the overlay
-        tundra.animateCSS(document.querySelector('.overlay .message .icon.heart'), 'heartbeat'); //change query slector to something more specific
+        // tundra.animateCSS(document.querySelector('.overlay .message .icon.heart'), 'heartbeat'); //change query slector to something more specific
 
         //add the class to the card to make it move to the right and then remove the card
         card.classList.add('moveright');
@@ -428,24 +428,6 @@ const tundra = {
             document.querySelector('.btn-small.active').classList.remove('active');
             ev.currentTarget.classList.add('active');
         }
-    },
-
-    //helper function taken from https://github.com/daneden/animate.css/ to remove the class
-    //after the animation ends
-    animateCSS: (node, animationName, callback) => {
-        //after using the seleced node (taken from document.getelementbyid) we will 
-        //add the specified animation name
-        node.classList.add('animated', animationName)
-        
-        //and then also define a fucntion callback to run only if the callback is a fucntion
-        //if we want to run any specific code after the animation (currently not used)
-        function handleAnimationEnd() {
-            node.classList.remove('animated', animationName) //remove the animated and animation name after the animation has ended
-            node.removeEventListener('animationend', handleAnimationEnd) //also remove the event listener 
-            if (typeof callback === 'function') callback()
-        }
-    
-        node.addEventListener('animationend', handleAnimationEnd)
     }
 }
 
