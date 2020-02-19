@@ -444,10 +444,11 @@ const tundra = {
         //add the specified animation name
         node.classList.add('animated', animationName)
         
-        //and then also define a fucntion callback to run only if the funcion 
+        //and then also define a fucntion callback to run only if the callback is a fucntion
+        //if we want to run any specific code after the animation (currently not used)
         function handleAnimationEnd() {
-            node.classList.remove('animated', animationName)
-            node.removeEventListener('animationend', handleAnimationEnd)
+            node.classList.remove('animated', animationName) //remove the animated and animation name after the animation has ended
+            node.removeEventListener('animationend', handleAnimationEnd) //also remove the event listener 
             if (typeof callback === 'function') callback()
         }
     
