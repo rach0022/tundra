@@ -75,6 +75,10 @@ h1, h2, h3, h4, h5, h6{
     &.deactive{
         display: none;
     }
+    .message{
+        font-size: 20em;
+        height: 100%;
+    }
 }
 
 //base code taken form simple spa demo:
