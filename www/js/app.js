@@ -270,6 +270,7 @@ const tundra = {
         let card = ev.currentTarget;
         let id = ev.currentTarget.getAttribute('data-id');
         tundra.toggleTimeout('deactive', 400, document.getElementById('deleted')); //showing the overlay
+        tundra.animateCSS(document.getElementById('deleted'), 'heartbeat', () => null);
 
         //add the class to the div to move it to the left and then remove the card
         card.classList.add('moveleft');
@@ -287,6 +288,7 @@ const tundra = {
         let card = ev.currentTarget;
         let id = ev.currentTarget.getAttribute('data-id');
         tundra.toggleTimeout('deactive', 400, document.getElementById('saved')); //showing the overlay
+        tundra.animateCSS(document.getElementById('saved'), 'heartbeat', () => null);
 
         //add the class to the card to make it move to the right and then remove the card
         card.classList.add('moveright');
@@ -431,6 +433,23 @@ const tundra = {
             document.querySelector('.btn-small.active').classList.remove('active');
             ev.currentTarget.classList.add('active');
         }
+    },
+
+    //helper function taken from https://github.com/daneden/animate.css/ to remove the class
+    //after the animation ends
+    animateCSS: (node, animationName, callback) => {
+        //after using the seleced node (taken from document.getelementbyid) we will 
+        //add the specified animation name
+        node.classList.add('animated', animationName)
+        
+        //and then also define a fucntion callback to run only if the funcion 
+        function handleAnimationEnd() {
+            node.classList.remove('animated', animationName)
+            node.removeEventListener('animationend', handleAnimationEnd)
+            if (typeof callback === 'function') callback()
+        }
+    
+        node.addEventListener('animationend', handleAnimationEnd)
     }
 }
 
