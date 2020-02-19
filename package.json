@@ -5,7 +5,7 @@
   "description": "A sample Apache Cordova application that responds to the deviceready event.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev-ios": "cordova run ios --target=\"iPhone-8, 13.3\""
   },
   "keywords": [
     "ecosystem:cordova"
