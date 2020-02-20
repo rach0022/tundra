@@ -181,8 +181,10 @@ const tundra = {
                 //new cards for them and push them onto the currentProfiles array
                 data.profiles.forEach(profile =>{
                     tundra.currentProfiles.push(profile);
-                    tundra.buildNewProfileCards(profile);
+                    // tundra.buildNewProfileCards(profile);
                 })
+                //we want to only build one profile at a time and then build a new one each time it is removed:
+                tundra.buildNewProfileCards(tundra.currentProfiles[tundra.currentProfiles.length - 1]);
                 // console.log(tundra.currentProfiles, tundra.imgBaseUrl);
             })
             .catch(err => {
@@ -310,6 +312,7 @@ const tundra = {
             500 //ms
         );
         tundra.checkCurrentLoadedProfiles();
+        tundra.buildNewProfileCards(tundra.currentProfiles[tundra.currentProfiles.length - 1]); //build a new profile after we check
     },
 
     //this is the callback function to build the saved profiles page using the data from
