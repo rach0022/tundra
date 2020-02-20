@@ -24,11 +24,12 @@
 - [ ] fix content to show the title underneath the iphone 11 notch
 
 ##### Android Bugs:
-- [ ] fix icons for android, use adapative icons as well as legacy icons
+- [x] fix icons for android, use adapative icons as well as legacy icons
+- [ ] adaptive icons prevent cordova from building android version, get an error: Cannot read property 'startsWith' of undefined
 
 #### Code:
-- [ ] add my own css animations (using the keyframes)
-- [ ] build only one card at a time and then build a new card each time one is swiped
+- [x] add my own css animations (using the keyframes)
+- [x] build only one card at a time and then build a new card each time one is swiped
 - [x] setup enviroment variables for android development
 - [x] learn how to use cordova merges folder: https://www.youtube.com/watch?v=PPI_9ilON7Y&
 feature=emb_title
@@ -51,7 +52,7 @@ feature=emb_title
 
 
 #### Project Details: 
-- [ ] This app will let you create a Cordova app that will run on both Android and iOS. The core JavaScript that we use will be the same for both versions. However, there may be a few script and style things that are different between the two platforms. We will use the merge folder to handle these differences.
+- [x] This app will let you create a Cordova app that will run on both Android and iOS. The core JavaScript that we use will be the same for both versions. However, there may be a few script and style things that are different between the two platforms. We will use the merge folder to handle these differences.
 - [x] You will building a two screen Single Page Application as a Cordova App.
 - [x] The first screen will show cards with pictures, names and other details. The user will be able to swipe left or right on the card. When the user swipes left or right you need to use a CSS transition to animate the card off the screen in the correct direction.
 - [x] Swiping left will delete the card and discard all that data.
@@ -94,7 +95,7 @@ feature=emb_title
 
 
 #### Submission Requirements: 
-- [ ] Step ONE:
+- [x] Step ONE:
     Do a demo during class of your app running on an Android OR iOS device. The demo must include the custom app launcher icon, the custom splashscreen images, and at least the fetch and display of one profile at a time plus the ability to swipe a card.
 - [ ] Step TWO:
     - [ ] Add Steve to your private Github Repo
