@@ -90,6 +90,14 @@ h1, h2, h3, h4, h5, h6{
     }
 }
 
+//code for the svg loader, using the class hex-loader
+//for the actual svg itself:
+.hex-loader{
+    fill:#E985A2;
+    stroke:#F4EEF0;
+    stroke-miterlimit:10;
+}
+
 //base code taken form simple spa demo:
 body {
     padding: 0;

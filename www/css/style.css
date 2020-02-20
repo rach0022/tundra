@@ -113,6 +113,11 @@ h1, h2, h3, h4, h5, h6 {
   .overlay .message span {
     color: #B53B51; }
 
+.hex-loader {
+  fill: #E985A2;
+  stroke: #F4EEF0;
+  stroke-miterlimit: 10; }
+
 body {
   padding: 0;
   margin: 0;
