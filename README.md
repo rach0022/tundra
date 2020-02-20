@@ -2,7 +2,7 @@
 ## Cold Climate Dating App
 
 #### Bugs to Fix:
-- [ ] keep testing when swiping the cards, errors still seem like they occur, pay attention to when
+- [ ] Uncaught TypeError: Cannot read property 'removeChild' of null | Happens every 5 or 6 swipes, so somehting involving the fetch the order of how i remove the cards
 - [x] figure out why when swiping multiple swipes will be registered and multiple cards are created
 - [x] figure out why switching the gender paramater does not remove the cards but adds more cards to the stack
 - [x] find out why removing a card will show the first card again (only the first swiped card) (made sure to build new card after removing from array)

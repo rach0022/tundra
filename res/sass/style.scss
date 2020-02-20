@@ -1,4 +1,5 @@
 @import 'variables';
+@import 'fonts';
 @import 'mixins';
 
 *{
@@ -80,7 +81,8 @@ h1, h2, h3, h4, h5, h6{
         display: none;
     }
     .message{
-        .span{
+        animation: pulse 300ms ease-in 1;
+        span{
             color: $dark-accent;
         }
         font-size: 20em;
