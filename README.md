@@ -18,7 +18,8 @@
 - [x] figure out why id does not match the proper deleted profile because I always delete the last one (array.find did not find a match) | was using person.id in for each when it was person[0].id
 
 ##### iOS Bugs:
-- [ ] figure out why all swipe rights are invalid swiperights (might just be an issue on iphone 11 pro emulator, its fine on iphone 8 emulator and devices)
+- [x] figure out why all swipe rights are invalid swiperights (might just be an issue on iphone 11 pro emulator, its fine on iphone 8 emulator and devices)
+- [ ] fix content to show the title underneath the iphone 11 notch
 
 ##### Android Bugs:
 - [ ] fix icons for android, use adapative icons as well as legacy icons
