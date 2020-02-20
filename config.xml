@@ -34,21 +34,13 @@
         <icon density="xxxhdpi" src="res/icon/android/xxxhdpi.png" />
 
         <!-- adaptive icon definitions with a background image-->
-        <icon background="res/icon/android/background-ldpi.png" density="ldpi" foreground="res/icon/android/foreground-ldpi.png" />
+        <!-- <icon background="res/icon/android/background-ldpi.png" density="ldpi" foreground="res/icon/android/foreground-ldpi.png" />
         <icon background="res/icon/android/background-mdpi.png" density="mdpi" foreground="res/icon/android/foreground-mdpi.png" />
         <icon background="res/icon/android/background-hdpi.png" density="hdpi" foreground="res/icon/android/foreground-hdpi.png" />
         <icon background="res/icon/android/background-xhdpi.png" density="xhdpi" foreground="res/icon/android/foreground-xhdpi.png" />
         <icon background="res/icon/android/background-xxhdpi.png" density="xxhpi" foreground="res/icon/android/foreground-xxhdpi.png" />
         <icon background="res/icon/android/background-xxxhdpi.png" density="xxxhdpi" foreground="res/icon/android/foreground-xxxhdpi.png" />
-
-        <!-- adaptive icons with color as background  -->
-        <icon background="@color/background" density="ldpi" foreground="res/icon/android/foreground-ldpi.png" />
-        <icon background="@color/background" density="mdpi" foreground="res/icon/android/foreground-mdpi.png" />
-        <icon background="@color/background" density="hdpi" foreground="res/icon/android/foreground-hdpi.png" />
-        <icon background="@color/background" density="xhdpi" foreground="res/icon/android/foreground-xhdpi.png" />
-        <icon background="@color/background" density="xxhdpi" foreground="res/icon/android/foreground-xxhdpi.png" />
-        <icon background="@color/background" density="xxxhdpi" foreground="res/icon/android/foreground-xxhdpi.png" />
-
+         -->
         <!-- SPLASHSCREEN DEFINITIONS  -->
         <splash density="port-ldpi" src="res/screen/android/splash-port-ldpi.png" />
         <splash density="port-mdpi" src="res/screen/android/splash-port-mdpi.png" />
