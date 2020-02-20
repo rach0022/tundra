@@ -3,6 +3,7 @@
 
 #### Bugs to Fix:
 - [ ] uncaught error when swiping right and left, removeChild is null for an element, find out why
+- [ ] find out why removing a card will show the first card again (only the first swiped card)
 - [x] iphone 11 seems to be slower find out why, (solved) overscroll was slowiong down the app so disallowoverscroll preference set to true was set in config.xml
 - [x] Check old parameter for button so we dont keep rereshing the entire array when constantly clicking the button
 - [x] Issue with switching back to home div after going to profiles (active css class wont turn off, change .page code to stop conflicting with Tiny$hell (add .page.active to the query as it wasnt specific enough and was conflicting with the .active classes from tiny$hell)

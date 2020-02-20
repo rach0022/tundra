@@ -264,7 +264,7 @@ const tundra = {
     swipeLeft: ev =>{
         let card = ev.currentTarget;
         let id = ev.currentTarget.getAttribute('data-id');
-        tundra.toggleTimeout('deactive', 400, document.getElementById('deleted')); //showing the overlay
+        tundra.toggleTimeout('deactive', 500, document.getElementById('deleted')); //showing the overlay
         // tundra.animateCSS(document.querySelector('.overlay .message .icon.delete'), 'heartbeat'); //change query slector to something more specific
 
         //add the class to the div to move it to the left and then remove the card
@@ -282,7 +282,7 @@ const tundra = {
     swipeRight: ev =>{
         let card = ev.currentTarget;
         let id = ev.currentTarget.getAttribute('data-id');
-        tundra.toggleTimeout('deactive', 400, document.getElementById('saved')); //showing the overlay
+        tundra.toggleTimeout('deactive', 500, document.getElementById('saved')); //showing the overlay
         // tundra.animateCSS(document.querySelector('.overlay .message .icon.heart'), 'heartbeat'); //change query slector to something more specific
 
         //add the class to the card to make it move to the right and then remove the card
