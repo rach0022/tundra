@@ -17,6 +17,7 @@
     <allow-intent href="geo:*" />
     <allow-intent href="http://griffis.edumedia.ca/mad9022/tundra/get.profiles.php?gender=*" />
     <platform name="android">
+        <resource-file src="res/values/colours.xml" target="/app/src/main/res/values/colors.xml" />
         <allow-intent href="market:*" />
 
         <!-- FIX FOR uses cleartexttraffic:  -->
@@ -32,6 +33,22 @@
         <icon density="xxhdpi" src="res/icon/android/xxhdpi.png" />
         <icon density="xxxhdpi" src="res/icon/android/xxxhdpi.png" />
 
+        <!-- adaptive icon definitions with a background image-->
+        <icon background="res/icon/android/background-ldpi.png" density="ldpi" foreground="res/icon/android/foreground-ldpi.png" />
+        <icon background="res/icon/android/background-mdpi.png" density="mdpi" foreground="res/icon/android/foreground-mdpi.png" />
+        <icon background="res/icon/android/background-hdpi.png" density="hdpi" foreground="res/icon/android/foreground-hdpi.png" />
+        <icon background="res/icon/android/background-xhdpi.png" density="xhdpi" foreground="res/icon/android/foreground-xhdpi.png" />
+        <icon background="res/icon/android/background-xxhdpi.png" density="xxhpi" foreground="res/icon/android/foreground-xxhdpi.png" />
+        <icon background="res/icon/android/background-xxxhdpi.png" density="xxxhdpi" foreground="res/icon/android/foreground-xxxhdpi.png" />
+
+        <!-- adaptive icons with color as background  -->
+        <icon background="@color/background" density="ldpi" foreground="res/icon/android/foreground-ldpi.png" />
+        <icon background="@color/background" density="mdpi" foreground="res/icon/android/foreground-mdpi.png" />
+        <icon background="@color/background" density="hdpi" foreground="res/icon/android/foreground-hdpi.png" />
+        <icon background="@color/background" density="xhdpi" foreground="res/icon/android/foreground-xhdpi.png" />
+        <icon background="@color/background" density="xxhdpi" foreground="res/icon/android/foreground-xxhdpi.png" />
+        <icon background="@color/background" density="xxxhdpi" foreground="res/icon/android/foreground-xxhdpi.png" />
+
         <!-- SPLASHSCREEN DEFINITIONS  -->
         <splash density="port-ldpi" src="res/screen/android/splash-port-ldpi.png" />
         <splash density="port-mdpi" src="res/screen/android/splash-port-mdpi.png" />
@@ -46,9 +63,12 @@
         <splash density="land-xxhdpi" src="res/screen/android/splash-land-xxhdpi.png" />
         <splash density="land-xxxhdpi" src="res/screen/android/splash-land-xxxhdpi.png" />
     </platform>
+
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
+
+        <!-- legacy icons  -->
         <icon height="1024" src="res/icon/ios/icon-1024.png" width="1024" />
         <icon height="29" src="res/icon/ios/icon-small.png" width="29" />
         <icon height="58" src="res/icon/ios/icon-small@2x.png" width="58" />
@@ -69,6 +89,8 @@
         <icon height="152" src="res/icon/ios/icon-76@2x.png" width="152" />
         <icon height="167" src="res/icon/ios/icon-167.png" width="167" />
         <icon height="167" src="res/icon/ios/icon-83.5@2x.png" width="167" />
+
+        <!-- legacy splashscreens  -->
         <splash src="res/screen/ios/Default@2x~iphone~anyany.png" />
         <splash src="res/screen/ios/Default@2x~iphone~comany.png" />
         <splash src="res/screen/ios/Default@3x~iphone~anyany.png" />
@@ -77,6 +99,8 @@
         <splash src="res/screen/ios/Default@2x~ipad~comany.png" />
         <splash src="res/screen/ios/Default@2x~iphone~comcom.png" />
         <splash src="res/screen/ios/Default@3x~iphone~anycom.png" />
+
+        <!-- newer version of splashscreens  -->
         <splash height="480" src="res/screen/ios/Default~iphone.png" width="320" />
         <splash height="960" src="res/screen/ios/Default@2x~iphone.png" width="640" />
         <splash height="1024" src="res/screen/ios/Default-Portrait~ipad.png" width="768" />
