@@ -2,8 +2,9 @@
 ## Cold Climate Dating App
 
 #### Bugs to Fix:
-- [ ] figure out why when swiping multiple swipes will be registered and multiple cards are created
-- [ ] figure out why switching the gender paramater does not remove the cards but adds more cards to the stack
+- [ ] keep testing when swiping the cards, errors still seem like they occur, pay attention to when
+- [x] figure out why when swiping multiple swipes will be registered and multiple cards are created
+- [x] figure out why switching the gender paramater does not remove the cards but adds more cards to the stack
 - [x] find out why removing a card will show the first card again (only the first swiped card) (made sure to build new card after removing from array)
 - [x] iphone 11 seems to be slower find out why, (solved) overscroll was slowiong down the app so disallowoverscroll preference set to true was set in config.xml
 - [x] Check old parameter for button so we dont keep rereshing the entire array when constantly clicking the button

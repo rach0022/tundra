@@ -65,8 +65,7 @@ const tundra = {
 
         tundra.genderParameter = 'female';
         tundra.getNewProfiles(); //running this at initilization so the user has profiles to swipe
-        console.log(tundra.currentProfiles);
-
+        console.log(tundra.currentProfiles, tundra.currentProfiles.length);
         //now we add the event listener for the build profile page callback
         document.querySelector('[data-href="profiles"]').addEventListener('click', tundra.buildProfilesPage);
 
@@ -75,16 +74,6 @@ const tundra = {
         genBtns.forEach(btn =>{
             btn.addEventListener('click', tundra.switchGender);
         });
-
-        //now lets initialize the a new instance of Tiny$hell on the profiles sections and home section
-        // let home_sect = document.getElementById('home-section');
-        // let profile_sect = document.getElementById('profile-section');
-
-        //testtimeout:
-        //REMOVED tundra.testTimeOut();
-
-
-
     },
 
     nav: ev =>{
@@ -170,6 +159,7 @@ const tundra = {
     //getProfiles will preform a fetch call to the tundra.profilesApiUrl + genderParameter
     //and will add the results to the tundra.currentProfiles array
     getNewProfiles: function() {
+        document.getElementById('home-section').innerHTML = ""; //first we clear out the html to make sure it works properly and no duplicates are created
         fetch(tundra.profilesApiUrl+tundra.genderParameter)
             .then(response => response.json())
             .then(data =>{
@@ -184,9 +174,11 @@ const tundra = {
                     tundra.currentProfiles.push(profile);
                     // tundra.buildNewProfileCards(profile);
                 })
-                //we want to only build one profile at a time and then build a new one each time it is removed:
-                tundra.buildNewProfileCards(tundra.currentProfiles[tundra.currentProfiles.length - 1]);
-                // console.log(tundra.currentProfiles, tundra.imgBaseUrl);
+                // now to check if there are any cards loaded, if not then make the first card (we do it here,
+                //because we know that the cards array is fully populated now)
+                if(!document.getElementById('currentcard')){
+                    tundra.buildNewProfileCards(tundra.currentProfiles[tundra.currentProfiles.length - 1]);
+                }
             })
             .catch(err => {
                 //for now we will console log the error later on we will
@@ -322,7 +314,6 @@ const tundra = {
             500 //ms
         );
         tundra.checkCurrentLoadedProfiles();
-        console.log(tundra.currentProfiles);
     },
 
     //this is the callback function to build the saved profiles page using the data from
@@ -437,6 +428,7 @@ const tundra = {
             tundra.currentProfiles = []; //clear out the current profiles
             tundra.removeCard(document.getElementById('currentcard'));
             tundra.getNewProfiles(); //get new profiles
+
 
             //change the button class depending on what is active and what is pressed
             document.querySelector('.btn-small.active').classList.remove('active');
