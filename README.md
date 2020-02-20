@@ -28,6 +28,7 @@
 - [ ] adaptive icons prevent cordova from building android version, get an error: Cannot read property 'startsWith' of undefined
 
 #### Code:
+- [ ] add a css loader (svg loader with animation) that will display when preforming the fetch call and will dissapear once a fetch call is done (only for the initial loading or when clicking on a button to switch gender)
 - [x] add my own css animations (using the keyframes)
 - [x] build only one card at a time and then build a new card each time one is swiped
 - [x] setup enviroment variables for android development
