@@ -80,7 +80,10 @@ h1, h2, h3, h4, h5, h6{
     &.deactive{
         display: none;
     }
-    .message{
+    &#loading{
+        background-color: none;
+    }
+    .message.pulse{
         animation: pulse 300ms ease-in 1;
         span{
             color: $dark-accent;
@@ -89,13 +92,19 @@ h1, h2, h3, h4, h5, h6{
         height: 100%;
     }
 }
-
-//code for the svg loader, using the class hex-loader
-//for the actual svg itself:
-.hex-loader{
-    fill:#E985A2;
-    stroke:#F4EEF0;
-    stroke-miterlimit:10;
+svg{
+    //code for the svg loader, using the class hex-loader
+    //for the actual svg itself:
+    transform: scale(0.2);
+    .hex-loader{
+        animation: none;
+        fill:#E985A2;
+        stroke:#F4EEF0;
+        stroke-miterlimit:10;
+        transform-origin: center;
+        transform: rotate(0);
+        animation: spin 2000ms ease-in-out infinite;
+    }
 }
 
 //base code taken form simple spa demo:

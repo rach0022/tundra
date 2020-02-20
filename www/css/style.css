@@ -17,6 +17,9 @@
     transform: scale(1.2); }
   100% {
     transform: scale(1.3); } }
+@keyframes spin {
+  100% {
+    transform: rotate(360deg); } }
 /* rokkitt-regular - latin */
 @font-face {
   font-family: 'Rokkitt';
@@ -106,17 +109,25 @@ h1, h2, h3, h4, h5, h6 {
 
 .overlay.deactive {
   display: none; }
-.overlay .message {
+.overlay#loading {
+  background-color: none; }
+.overlay .message.pulse {
   animation: pulse 300ms ease-in 1;
   font-size: 20em;
   height: 100%; }
-  .overlay .message span {
+  .overlay .message.pulse span {
     color: #B53B51; }
 
-.hex-loader {
-  fill: #E985A2;
-  stroke: #F4EEF0;
-  stroke-miterlimit: 10; }
+svg {
+  transform: scale(0.2); }
+  svg .hex-loader {
+    animation: none;
+    fill: #E985A2;
+    stroke: #F4EEF0;
+    stroke-miterlimit: 10;
+    transform-origin: center;
+    transform: rotate(0);
+    animation: spin 2000ms ease-in-out infinite; }
 
 body {
   padding: 0;
