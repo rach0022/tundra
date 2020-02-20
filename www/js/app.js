@@ -263,6 +263,9 @@ const tundra = {
     //the function calls to remove the card from here and from the array
     swipeLeft: ev =>{
         let card = ev.currentTarget;
+        //removing the event listeners to stop the event from triggering again
+        // card.removeEventListener('swiperight',tundra.swipeRight);
+        // card.removeEventListener('swipeleft',tundra.swipeLeft);
         let id = ev.currentTarget.getAttribute('data-id');
         tundra.toggleTimeout('deactive', 500, document.getElementById('deleted')); //showing the overlay
         // tundra.animateCSS(document.querySelector('.overlay .message .icon.delete'), 'heartbeat'); //change query slector to something more specific
@@ -281,6 +284,9 @@ const tundra = {
     //savedProfiles (we should load in the saved profiles first)
     swipeRight: ev =>{
         let card = ev.currentTarget;
+        //removing the event listeners to stop the event from triggering again
+        // card.removeEventListener('swiperight',tundra.swipeRight);
+        // card.removeEventListener('swipeleft',tundra.swipeLeft);
         let id = ev.currentTarget.getAttribute('data-id');
         tundra.toggleTimeout('deactive', 500, document.getElementById('saved')); //showing the overlay
         // tundra.animateCSS(document.querySelector('.overlay .message .icon.heart'), 'heartbeat'); //change query slector to something more specific
@@ -308,11 +314,12 @@ const tundra = {
             function(){
                 //remove the div from the parent element
                 this.parentElement.removeChild(this);
+                // this.parentElement.innerHTML = "";
             }.bind(card), 
             500 //ms
         );
-        tundra.checkCurrentLoadedProfiles();
         tundra.buildNewProfileCards(tundra.currentProfiles[tundra.currentProfiles.length - 1]); //build a new profile after we check
+        tundra.checkCurrentLoadedProfiles();
     },
 
     //this is the callback function to build the saved profiles page using the data from
