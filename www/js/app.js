@@ -65,6 +65,7 @@ const tundra = {
 
         tundra.genderParameter = 'female';
         tundra.getNewProfiles(); //running this at initilization so the user has profiles to swipe
+        console.log(tundra.currentProfiles);
 
         //now we add the event listener for the build profile page callback
         document.querySelector('[data-href="profiles"]').addEventListener('click', tundra.buildProfilesPage);
@@ -233,9 +234,10 @@ const tundra = {
         let genderText = document.createElement('p');
         let distText = document.createElement('p');
 
-        //now we set the individual details we want to liek classes, information, etc
+        //now we set the individual details we want to like classes, information, etc
         card.classList.add('card', 'fixed', 'active');
         card.setAttribute('data-id', profile.id);
+        card.id = "currentcard";
         infoText.classList.add('info');
         headerText.textContent = profile.first + ' ' + profile.last;
         distText.textContent = profile.distance;
@@ -277,7 +279,7 @@ const tundra = {
         //now to remove the card from the currentProfiles array
         let index = tundra.currentProfiles.findIndex(person => person.id == id);
         let removed = tundra.currentProfiles.splice(index, 1);
-        console.log(removed); //log out the removed card for now and the length
+        tundra.buildNewProfileCards(tundra.currentProfiles[tundra.currentProfiles.length - 1]); //build a new profile after we check
     },
 
     //function to swipe right, this will add the profile from currentProfiles to 
@@ -304,6 +306,7 @@ const tundra = {
         tundra.savedProfiles.push(saved);
         tundra.setProfiles();
         // console.log(saved, tundra.savedProfiles);
+        tundra.buildNewProfileCards(tundra.currentProfiles[tundra.currentProfiles.length - 1]); //build a new profile after we check
     },
 
     //helper function to remove the card from the html:
@@ -318,8 +321,8 @@ const tundra = {
             }.bind(card), 
             500 //ms
         );
-        tundra.buildNewProfileCards(tundra.currentProfiles[tundra.currentProfiles.length - 1]); //build a new profile after we check
         tundra.checkCurrentLoadedProfiles();
+        console.log(tundra.currentProfiles);
     },
 
     //this is the callback function to build the saved profiles page using the data from
@@ -432,6 +435,7 @@ const tundra = {
         if(!(tundra.genderParameter == newParam)){
             tundra.genderParameter =  newParam; //we should do some validation on the parameter later
             tundra.currentProfiles = []; //clear out the current profiles
+            tundra.removeCard(document.getElementById('currentcard'));
             tundra.getNewProfiles(); //get new profiles
 
             //change the button class depending on what is active and what is pressed
