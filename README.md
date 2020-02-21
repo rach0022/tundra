@@ -2,8 +2,8 @@
 ## Cold Climate Dating App
 
 #### Bugs to Fix:
-- [ ] Uncaught TypeError: Cannot read property 'removeChild' of null | Happens every 5 or 6 swipes, so somehting involving the fetch the order of how i remove the cards
-- [ ] figure out why duplicate profiles are being shown (corresponding profile will display the second time, but will show information on two cards) when switching the gender paramter
+- [ ] Uncaught TypeError: Cannot read property 'removeChild' of null | Happens every 5 or 6 swipes, so something involving the fetch the order of how I remove the cards (or when)
+- [x] figure out why duplicate profiles are being shown (corresponding profile will display the second time, but will show information on two cards) when switching the gender paramter (SOLUTION: stop calling the getNewProfiles() because it is already called when we call remove card after nuking the array)
 - [x] figure out why when swiping multiple swipes will be registered and multiple cards are created
 - [x] figure out why switching the gender paramater does not remove the cards but adds more cards to the stack
 - [x] find out why removing a card will show the first card again (only the first swiped card) (made sure to build new card after removing from array)
@@ -49,7 +49,7 @@ feature=emb_title
 - [x] use action-right or reveal-right to show the delete button
 - [x] add 2 overlays (one for saved and deleted) and then add a class to .overlay called hidden/ deactive that we will turn off to show the overlay for about 400ms then hide again
 - [ ] finish styling for everything
-- [ ] build the buttons to switch gender depending on what device we are on or switch the sections class to ios/ android depending on which device
+- [x] build the buttons to switch gender depending on what device we are on or switch the sections class to ios/ android depending on which device
 - [x] add an "active" class to the button and change its style to show the user which is selected
 
 

@@ -66,13 +66,14 @@ const tundra = {
 
         tundra.genderParameter = 'female';
         tundra.getNewProfiles(); //running this at initilization so the user has profiles to swipe
-        console.log(tundra.currentProfiles, tundra.currentProfiles.length);
         //now we add the event listener for the build profile page callback
         document.querySelector('[data-href="profiles"]').addEventListener('click', tundra.buildProfilesPage);
 
         //add event listeners for the buttons to switch gender paramter:
         let genBtns = document.querySelectorAll('.gender');
         genBtns.forEach(btn =>{
+            let classname = "device" in window ? device.platform.toLowerCase() : "browser"
+            btn.classList.add(classname);
             btn.addEventListener('click', tundra.switchGender);
         });
     },
@@ -167,21 +168,21 @@ const tundra = {
                 //first we will decode the imgBaseURL given from the api
                 //and set that value to the tundra.imgBaseUrl
                 tundra.imgBaseUrl = decodeURIComponent(data.imgBaseURL);
-                // tundra.currentProfiles += data.profiles;
 
                 //now we will loop through all the elements of profiles and build
                 //new cards for them and push them onto the currentProfiles array
                 data.profiles.forEach(profile =>{
                     tundra.currentProfiles.push(profile);
-                    // tundra.buildNewProfileCards(profile);
                 })
-                // now to check if there are any cards loaded, if not then make the first card (we do it here,
+            })
+            .then(()=> {
+                 // now to check if there are any cards loaded, if not then make the first card (we do it here,
                 //because we know that the cards array is fully populated now)
                 if(!document.getElementById('currentcard')){
                     tundra.buildNewProfileCards(tundra.currentProfiles[tundra.currentProfiles.length - 1]);
                 }
-            })
-            .then(()=> tundra.endLoading()) //stop the loading animation after the fetch is complete
+                tundra.endLoading();//stop the loading animation after the fetch is complete
+            }) 
             .catch(err => {
                 //for now we will console log the error later on we will
                 //switch the error overlay to active to show that an error has occured
@@ -298,7 +299,7 @@ const tundra = {
         setTimeout(
             function(){
                 //remove the div from the parent element
-                this.parentNode.removeChild(this);
+                this.parentElement.removeChild(this);
                 // this.parentElement.innerHTML = "";
             }.bind(card), 
             tundra.timeoutDelay //ms
@@ -410,21 +411,23 @@ const tundra = {
     //we will clear out the currentProfiles array and reload new profiles after switching
     //the gender paramter to the data-val attribute of the button clicked
     switchGender: ev =>{
-        tundra.startLoading(); //start the loading of the svg loading icon
+        console.log(tundra.currentProfiles);
         let newParam = ev.currentTarget.getAttribute('data-val');
 
         //check to see if the old param is the same as the current param (otherwise do nothing)
         if(!(tundra.genderParameter == newParam)){
+            tundra.startLoading(); //start the loading of the svg loading icon
             tundra.genderParameter =  newParam; //we should do some validation on the parameter later
             tundra.currentProfiles = []; //clear out the current profiles
             tundra.removeCard(document.getElementById('currentcard'));
-            tundra.getNewProfiles(); //get new profiles
-
+            // setTimeout(() => tundra.removeCard(document.getElementById('currentcard')), tundra.timeoutDelay-200); 
+            // tundra.getNewProfiles(); //get new profiles
 
             //change the button class depending on what is active and what is pressed
             document.querySelector('.btn-small.active').classList.remove('active');
             ev.currentTarget.classList.add('active');
         }
+        console.log(tundra.currentProfiles);
     },
 
     //helper functions to turns the loader div on and off
