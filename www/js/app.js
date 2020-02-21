@@ -26,6 +26,7 @@ const tundra = {
     savedProfiles: [], //these are the saved profiles for the user that are stored in session storage
     sessionKey: null, //the session key that will be used to read and write to the session storage, based on device uuid
     PROFILE_MIN: 3, //profileMin is used to set the minimum number of profiles we can have before we load new ones
+    timeoutDelay: 500, //the timeout (in ms) used for any timeout, or atleast will be used as a relative point
     //init function for app, runs after Device Ready or DOMContentLoaded
     init: () => {
         tundra.pages = document.querySelectorAll('.page');
@@ -250,7 +251,7 @@ const tundra = {
         tinyCard.addEventListener('swipeleft', tundra.swipeLeft);
         tinyCard.addEventListener('swiperight', tundra.swipeRight);
         document.getElementById('home-section').appendChild(card);
-        setTimeout(()=> card.className = 'card fixed active', 300);
+        setTimeout(()=> card.className = 'card fixed active', tundra.timeoutDelay - 200);
     },
 
     //functions to swipeLeft and swipeRight (delete and save)
@@ -258,9 +259,9 @@ const tundra = {
     //the function calls to remove the card from here and from the array
     swipeLeft: ev =>{
         let card = ev.currentTarget;
-        setTimeout(()=>card.className = 'card fixed left', 300);
+        setTimeout(()=>card.className = 'card fixed left', tundra.timeoutDelay-200);
         let id = ev.currentTarget.getAttribute('data-id');
-        tundra.toggleTimeout('deactive', 500, document.getElementById('deleted')); //showing the overlay
+        tundra.toggleTimeout('deactive', tundra.timeoutDelay, document.getElementById('deleted')); //showing the overlay
         tundra.removeCard(card);
 
         //now to remove the card from the currentProfiles array
@@ -273,9 +274,9 @@ const tundra = {
     //savedProfiles (we should load in the saved profiles first)
     swipeRight: ev =>{
         let card = ev.currentTarget;
-        setTimeout(()=>card.className = 'card fixed right', 300);
+        setTimeout(()=>card.className = 'card fixed right', tundra.timeoutDelay - 200);
         let id = ev.currentTarget.getAttribute('data-id');
-        tundra.toggleTimeout('deactive', 500, document.getElementById('saved')); //showing the overlay
+        tundra.toggleTimeout('deactive', tundra.timeoutDelay, document.getElementById('saved')); //showing the overlay
         tundra.removeCard(card);
 
         //now first we check the savedProfiles from session storage, add the correspoding
@@ -297,10 +298,10 @@ const tundra = {
         setTimeout(
             function(){
                 //remove the div from the parent element
-                this.parentElement.removeChild(this);
+                this.parentNode.removeChild(this);
                 // this.parentElement.innerHTML = "";
             }.bind(card), 
-            500 //ms
+            tundra.timeoutDelay //ms
         );
         tundra.checkCurrentLoadedProfiles();
     },
@@ -428,7 +429,7 @@ const tundra = {
 
     //helper functions to turns the loader div on and off
     //will use refernces to document.getElementById('loading) and check
-    //to see if its on or off, we will only turn loader on when we clear the array of current profiles
+    //to see if its on or off, we will only turn loader on when we clear the array of current profiles (tundra.switchGender)
     //or when we first launch the program in tundraInit
     startLoading: () =>{
         let loader = document.getElementById('loading');
