@@ -228,7 +228,7 @@ const tundra = {
         let distText = document.createElement('p');
 
         //now we set the individual details we want to like classes, information, etc
-        card.classList.add('card', 'fixed', 'active');
+        card.classList.add('card', 'fixed', 'top');
         card.setAttribute('data-id', profile.id);
         card.id = "currentcard";
         infoText.classList.add('info');
@@ -250,7 +250,7 @@ const tundra = {
         tinyCard.addEventListener('swipeleft', tundra.swipeLeft);
         tinyCard.addEventListener('swiperight', tundra.swipeRight);
         document.getElementById('home-section').appendChild(card);
-
+        setTimeout(()=> card.className = 'card fixed active', 300);
     },
 
     //functions to swipeLeft and swipeRight (delete and save)
@@ -258,15 +258,9 @@ const tundra = {
     //the function calls to remove the card from here and from the array
     swipeLeft: ev =>{
         let card = ev.currentTarget;
-        //removing the event listeners to stop the event from triggering again
-        // card.removeEventListener('swiperight',tundra.swipeRight);
-        // card.removeEventListener('swipeleft',tundra.swipeLeft);
+        setTimeout(()=>card.className = 'card fixed left', 300);
         let id = ev.currentTarget.getAttribute('data-id');
         tundra.toggleTimeout('deactive', 500, document.getElementById('deleted')); //showing the overlay
-        // tundra.animateCSS(document.querySelector('.overlay .message .icon.delete'), 'heartbeat'); //change query slector to something more specific
-
-        //add the class to the div to move it to the left and then remove the card
-        card.classList.add('moveleft');
         tundra.removeCard(card);
 
         //now to remove the card from the currentProfiles array
@@ -279,15 +273,9 @@ const tundra = {
     //savedProfiles (we should load in the saved profiles first)
     swipeRight: ev =>{
         let card = ev.currentTarget;
-        //removing the event listeners to stop the event from triggering again
-        // card.removeEventListener('swiperight',tundra.swipeRight);
-        // card.removeEventListener('swipeleft',tundra.swipeLeft);
+        setTimeout(()=>card.className = 'card fixed right', 300);
         let id = ev.currentTarget.getAttribute('data-id');
         tundra.toggleTimeout('deactive', 500, document.getElementById('saved')); //showing the overlay
-        // tundra.animateCSS(document.querySelector('.overlay .message .icon.heart'), 'heartbeat'); //change query slector to something more specific
-
-        //add the class to the card to make it move to the right and then remove the card
-        card.classList.add('moveright');
         tundra.removeCard(card);
 
         //now first we check the savedProfiles from session storage, add the correspoding

@@ -10,7 +10,7 @@
 - [x] iphone 11 seems to be slower find out why, (solved) overscroll was slowiong down the app so disallowoverscroll preference set to true was set in config.xml
 - [x] Check old parameter for button so we dont keep rereshing the entire array when constantly clicking the button
 - [x] Issue with switching back to home div after going to profiles (active css class wont turn off, change .page code to stop conflicting with Tiny$hell (add .page.active to the query as it wasnt specific enough and was conflicting with the .active classes from tiny$hell)
-- [ ] Issue with css transition not showing the card moving in either direction
+- [x] Issue with css transition not showing the card moving in either direction (goleft was supposed to be like goLeft)
 - [x] Figure out why reveal right and left do not work (wasn't using an instance of tiny$hell on the list-item)
 - [x] Fix Content Security Policy for the following
 - [x] fix the img-src for the content secutiry policy to allow image sto be displayed
