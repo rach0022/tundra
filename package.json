@@ -5,7 +5,9 @@
   "description": "A sample Apache Cordova application that responds to the deviceready event.",
   "main": "index.js",
   "scripts": {
-    "ios-test": "cordova run ios --target=\"iPhone-8, 13.3\""
+    "ios-test": "cordova run ios --target=\"iPhone-8, 13.3\"",
+    "rm-platforms": "cordova platform rm android && cordova platform rm ios",
+    "add-platforms": "cordova platform add android && cordova platform add ios"
   },
   "keywords": [
     "ecosystem:cordova"
