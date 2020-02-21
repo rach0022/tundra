@@ -3,6 +3,7 @@
 
 #### Bugs to Fix:
 - [ ] Uncaught TypeError: Cannot read property 'removeChild' of null | Happens every 5 or 6 swipes, so somehting involving the fetch the order of how i remove the cards
+- [ ] figure out why duplicate profiles are being shown (corresponding profile will display the second time, but will show information on two cards) when switching the gender paramter
 - [x] figure out why when swiping multiple swipes will be registered and multiple cards are created
 - [x] figure out why switching the gender paramater does not remove the cards but adds more cards to the stack
 - [x] find out why removing a card will show the first card again (only the first swiped card) (made sure to build new card after removing from array)
@@ -28,7 +29,7 @@
 - [ ] adaptive icons prevent cordova from building android version, get an error: Cannot read property 'startsWith' of undefined
 
 #### Code:
-- [ ] add a css loader (svg loader with animation) that will display when preforming the fetch call and will dissapear once a fetch call is done (only for the initial loading or when clicking on a button to switch gender)
+- [x] add a css loader (svg loader with animation) that will display when preforming the fetch call and will dissapear once a fetch call is done (only for the initial loading or when clicking on a button to switch gender)
 - [x] add my own css animations (using the keyframes)
 - [x] build only one card at a time and then build a new card each time one is swiped
 - [x] setup enviroment variables for android development

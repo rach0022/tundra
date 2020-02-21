@@ -58,7 +58,7 @@ const tundra = {
     //function to initialize all tundra based variables, this is run during init
     initTundra: () =>{
         //start of tundra based initilization code
-
+        tundra.startLoading();
         //defining the session key
         //set key based on device id
         tundra.sessionKey = "device" in window ? "REVIEW" + device.uuid : "REVIEWTEMPKEY";
@@ -180,6 +180,7 @@ const tundra = {
                     tundra.buildNewProfileCards(tundra.currentProfiles[tundra.currentProfiles.length - 1]);
                 }
             })
+            .then(()=> tundra.endLoading()) //stop the loading animation after the fetch is complete
             .catch(err => {
                 //for now we will console log the error later on we will
                 //switch the error overlay to active to show that an error has occured
@@ -420,6 +421,7 @@ const tundra = {
     //we will clear out the currentProfiles array and reload new profiles after switching
     //the gender paramter to the data-val attribute of the button clicked
     switchGender: ev =>{
+        tundra.startLoading(); //start the loading of the svg loading icon
         let newParam = ev.currentTarget.getAttribute('data-val');
 
         //check to see if the old param is the same as the current param (otherwise do nothing)
@@ -434,7 +436,24 @@ const tundra = {
             document.querySelector('.btn-small.active').classList.remove('active');
             ev.currentTarget.classList.add('active');
         }
+    },
+
+    //helper functions to turns the loader div on and off
+    //will use refernces to document.getElementById('loading) and check
+    //to see if its on or off, we will only turn loader on when we clear the array of current profiles
+    //or when we first launch the program in tundraInit
+    startLoading: () =>{
+        let loader = document.getElementById('loading');
+        if(loader.classList.contains('deactive')){ //if the loader has deactive we will switch it off
+            loader.classList.remove('deactive');
+        }
+    },
+
+    endLoading: () =>{
+        let loader = document.getElementById('loading');
+        loader.className = "overlay deactive"; //nuke the classlist to just overlay
     }
+
 }
 
 //copied from https://prof3ssorst3v3.github.io/mad9014/modules/week13/#domcontentloaded-vs-deviceready
