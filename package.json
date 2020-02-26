@@ -12,7 +12,7 @@
   "keywords": [
     "ecosystem:cordova"
   ],
-  "author": "Ravi Rachamalla",
+  "author": "Ravi Rachamalla <rach0022@algonquinlive.com>",
   "license": "Apache-2.0",
   "dependencies": {
     "cordova-android": "^8.1.0",
