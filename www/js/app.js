@@ -117,13 +117,13 @@ const tundra = {
                 console.log(tundra.appTextSource.error);
                 break;
             case 'home':
-                document.getElementById('hometab').className = "tab current";
-                document.getElementById('proftab').className = "tab";
+                document.getElementById('hometab').className = "tab current icon home";
+                document.getElementById('proftab').className = "tab icon fav";
                 console.log(tundra.appTextSource.welcome);
                 break;
             case 'profiles':
-                document.getElementById('hometab').className = "tab";
-                document.getElementById('proftab').className = "tab current";
+                document.getElementById('hometab').className = "tab icon home";
+                document.getElementById('proftab').className = "tab current icon fav";
                 // tundra.buildProfilesPage(); //cannot do this, hit max stack error
                 break;
         }

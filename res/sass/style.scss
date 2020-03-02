@@ -15,11 +15,20 @@ h1, h2, h3, h4, h5, h6{
     font-family: 'Rokkitt', 'serif';
 }
 
+//quick select all the tinyshell elements used and change
+//the background to reflect my colour scheme
 .card,.tab,.bar{
     background-color: $light-shade;
 }
 
+//selectors for the navbars from tiny$hell
 .bar{
+    header{
+        .icon{
+            color: $brand-color;
+            font-weight: 700;
+        }
+    }
     .tab{
         h2{
             color: $dark-shade;
@@ -92,6 +101,7 @@ h1, h2, h3, h4, h5, h6{
                 }
             }
         }
+        padding-bottom: 4em;
     }
 }
 
@@ -109,6 +119,9 @@ h1, h2, h3, h4, h5, h6{
         }
         font-size: 20em;
         height: 100%;
+        p{
+            font-size: 1em;
+        }
     }
 }
 svg{
