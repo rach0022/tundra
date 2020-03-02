@@ -48,7 +48,7 @@ feature=emb_title
 - [x] build the Profiles page based on what is in the saved profiles array using the skeleton in the html as a base using list from Tiny$hell
 - [x] use action-right or reveal-right to show the delete button
 - [x] add 2 overlays (one for saved and deleted) and then add a class to .overlay called hidden/ deactive that we will turn off to show the overlay for about 400ms then hide again
-- [ ] finish styling for everything
+- [x] finish styling for everything
 - [x] build the buttons to switch gender depending on what device we are on or switch the sections class to ios/ android depending on which device
 - [x] add an "active" class to the button and change its style to show the user which is selected
 
