@@ -66,6 +66,13 @@ html {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Rokkitt', 'serif'; }
 
+.card, .tab, .bar {
+  background-color: #F4EEF0; }
+
+.bar .tab h2 {
+  color: #281E30;
+  font-weight: 700; }
+
 #home .buttonbox {
   position: relative;
   top: 60vh;
@@ -83,6 +90,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .card {
   transition: transform 500ms ease-in;
+  border: none;
   transform: translateX(0); }
   .card header {
     width: 100%; }
@@ -103,9 +111,15 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateX(200%); }
 
 #profiles .list-view .list-item {
-  min-height: 3rem; }
-  #profiles .list-view .list-item .list-text p {
-    padding-left: 3em; }
+  min-height: auto; }
+  #profiles .list-view .list-item .list-text {
+    min-height: 3.5rem;
+    padding-top: 10px; }
+    #profiles .list-view .list-item .list-text p {
+      padding-left: 2.5em;
+      position: relative;
+      top: 10px;
+      font-size: 1.4rem; }
 
 .overlay.deactive {
   display: none; }
@@ -156,5 +170,9 @@ main {
 
 #profiles {
   background-color: #281E30; }
+
+.tab.current {
+  font-weight: 700;
+  color: #E985A2; }
 
 /*# sourceMappingURL=style.css.map */

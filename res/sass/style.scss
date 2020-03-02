@@ -15,6 +15,19 @@ h1, h2, h3, h4, h5, h6{
     font-family: 'Rokkitt', 'serif';
 }
 
+.card,.tab,.bar{
+    background-color: $light-shade;
+}
+
+.bar{
+    .tab{
+        h2{
+            color: $dark-shade;
+            font-weight: 700;
+        }
+    }
+}
+
 #home{
     .buttonbox{
         position: relative;
@@ -37,6 +50,7 @@ h1, h2, h3, h4, h5, h6{
 //selector for the card elements form tiny$hell
 .card{
     transition: transform 500ms ease-in;
+    border: none;
     transform: translateX(0); //initial transformation to allow it to move later
     header{
         width: 100%;
@@ -66,10 +80,15 @@ h1, h2, h3, h4, h5, h6{
 #profiles{
     .list-view{
         .list-item{
-            min-height: 3rem;
+            min-height: auto;
             .list-text{
+                min-height: 3.5rem;
+                padding-top: 10px;
                 p{
-                    padding-left: 3em;
+                    padding-left: 2.5em;
+                    position: relative;
+                    top: 10px;
+                    font-size: 1.4rem;
                 }
             }
         }
@@ -140,4 +159,11 @@ main {
 }
 #profiles {
     background-color: $dark-shade;
+}
+
+.tab{
+    &.current{
+        font-weight: 700;
+        color: $brand-color;
+    }
 }

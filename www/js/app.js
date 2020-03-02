@@ -113,13 +113,17 @@ const tundra = {
 
         // switch case method to change app properties based on which page is showing
         switch(target){
-            default: 
+            default:
                 console.log(tundra.appTextSource.error);
                 break;
             case 'home':
+                document.getElementById('hometab').className = "tab current";
+                document.getElementById('proftab').className = "tab";
                 console.log(tundra.appTextSource.welcome);
                 break;
             case 'profiles':
+                document.getElementById('hometab').className = "tab";
+                document.getElementById('proftab').className = "tab current";
                 // tundra.buildProfilesPage(); //cannot do this, hit max stack error
                 break;
         }
